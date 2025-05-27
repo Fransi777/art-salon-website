@@ -27,7 +27,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-forest/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -35,7 +35,7 @@ const Navigation = () => {
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="w-16 h-16 group-hover:scale-110 transition-transform duration-300">
               <img 
-                src="/lovable-uploads/8d1c2c41-89c0-4ff4-adec-6b9fb7b9bac0.png" 
+                src="/lovable-uploads/1c9a83cb-c079-4a8e-a11a-2e84ee09fdce.png" 
                 alt="The Art Barber Shop" 
                 className="w-full h-full object-contain"
               />
@@ -48,17 +48,17 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative font-montserrat font-medium transition-colors duration-300 hover:text-gold ${
-                  location.pathname === item.path ? 'text-gold' : 'text-white'
+                className={`relative font-montserrat font-medium transition-colors duration-300 hover:text-sage ${
+                  location.pathname === item.path ? 'text-sage' : 'text-obsidian'
                 } group`}
               >
                 {item.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full ${
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-sage transition-all duration-300 group-hover:w-full ${
                   location.pathname === item.path ? 'w-full' : ''
                 }`}></span>
               </Link>
             ))}
-            <Button className="bg-gold text-forest hover:bg-gold/90 font-montserrat font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105">
+            <Button className="bg-sage text-white hover:bg-sage/90 font-montserrat font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105">
               Book Now
             </Button>
           </div>
@@ -68,9 +68,9 @@ const Navigation = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden flex flex-col space-y-1 group"
           >
-            <span className={`w-6 h-0.5 bg-gold transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-            <span className={`w-6 h-0.5 bg-gold transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`w-6 h-0.5 bg-gold transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-sage transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-sage transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-sage transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
           </button>
         </div>
 
@@ -84,14 +84,14 @@ const Navigation = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-montserrat font-medium transition-colors duration-300 hover:text-gold ${
-                  location.pathname === item.path ? 'text-gold' : 'text-white'
+                className={`font-montserrat font-medium transition-colors duration-300 hover:text-sage ${
+                  location.pathname === item.path ? 'text-sage' : 'text-obsidian'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button className="bg-gold text-forest hover:bg-gold/90 font-montserrat font-semibold w-fit px-6 py-2 rounded-full">
+            <Button className="bg-sage text-white hover:bg-sage/90 font-montserrat font-semibold w-fit px-6 py-2 rounded-full">
               Book Now
             </Button>
           </div>
