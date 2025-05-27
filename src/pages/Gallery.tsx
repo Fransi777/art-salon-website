@@ -4,6 +4,14 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Scissors, Sparkles, Award, Users } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -52,28 +60,14 @@ const Gallery = () => {
       category: "Beard Work",
       title: "Full Beard Trim",
       description: "Complete beard grooming service"
-    },
-    {
-      id: 7,
-      url: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Hair Art",
-      title: "Geometric Lines",
-      description: "Precise geometric hair patterns"
-    },
-    {
-      id: 8,
-      url: "https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Classic Cuts",
-      title: "Gentleman's Cut",
-      description: "Sophisticated classic styling"
-    },
-    {
-      id: 9,
-      url: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Fades",
-      title: "High Fade",
-      description: "High contrast fade with texture"
     }
+  ];
+
+  const stats = [
+    { icon: Users, number: "500+", label: "Happy Clients" },
+    { icon: Scissors, number: "10+", label: "Years Experience" },
+    { icon: Award, number: "25+", label: "Awards Won" },
+    { icon: Sparkles, number: "1000+", label: "Cuts Delivered" }
   ];
 
   const filteredImages = selectedCategory === 'All' 
@@ -81,79 +75,106 @@ const Gallery = () => {
     : galleryImages.filter(img => img.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-forest via-obsidian to-forest">
       <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-8">
-              <div className="animate-fade-in">
-                <h1 className="text-6xl md:text-7xl font-montserrat font-black text-obsidian leading-tight">
-                  Our Work
-                  <br />
-                  <span className="text-obsidian">Portfolio</span>
-                  <br />
-                  <span className="font-playfair italic text-5xl md:text-6xl text-sage">Gallery</span>
-                </h1>
-              </div>
-              
-              <p className="text-lg text-gray-600 font-montserrat max-w-lg leading-relaxed">
-                Explore our collection of premium cuts, artistic designs, and transformative grooming experiences. 
-                Each image tells a story of craftsmanship and style.
-              </p>
-
-              {/* Filter Buttons */}
-              <div className="flex flex-wrap gap-3 pt-4">
-                {categories.slice(0, 3).map((category) => (
-                  <Button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-6 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 hover:scale-105 ${
-                      selectedCategory === category
-                        ? 'bg-sage text-white'
-                        : 'bg-transparent border border-sage text-sage hover:bg-sage hover:text-white'
-                    }`}
-                  >
-                    {category}
-                  </Button>
-                ))}
-              </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-forest/90 via-obsidian/90 to-sage/90"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gold/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-bronze/10 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center space-y-8">
+            <div className="animate-fade-in">
+              <h1 className="text-7xl md:text-8xl font-montserrat font-black text-gold leading-tight mb-4">
+                Our Work
+              </h1>
+              <h2 className="text-5xl md:text-6xl font-playfair italic text-sage mb-6">
+                Portfolio
+              </h2>
+              <h3 className="text-4xl md:text-5xl font-montserrat font-bold text-gold">
+                Gallery
+              </h3>
             </div>
+            
+            <p className="text-xl text-gray-300 font-montserrat max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{animationDelay: '0.3s'}}>
+              Explore our collection of premium cuts, artistic designs, and transformative grooming experiences. 
+              Each image tells a story of craftsmanship and style.
+            </p>
 
-            {/* Right Content - Featured Image */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative animate-slide-in-right">
-                <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-3xl transform rotate-3"></div>
-                <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1622286346003-c4b4f5d3b7bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="Featured Work" 
-                    className="w-full h-[500px] object-cover rounded-2xl"
-                  />
+            {/* Stats Section */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 animate-fade-in" style={{animationDelay: '0.6s'}}>
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center group">
+                  <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/30 transition-all duration-300 group-hover:scale-110">
+                    <stat.icon className="w-8 h-8 text-gold" />
+                  </div>
+                  <div className="text-3xl font-montserrat font-black text-gold mb-2">{stat.number}</div>
+                  <div className="text-sm font-montserrat text-gray-300">{stat.label}</div>
                 </div>
-                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-sage/20 rounded-full blur-lg"></div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
+      {/* Featured Carousel */}
+      <section className="py-20 bg-gradient-to-r from-sage/20 to-bronze/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-montserrat font-bold text-gold mb-4">Featured Work</h2>
+            <p className="text-lg text-gray-300 font-montserrat">Our latest masterpieces</p>
+          </div>
+          
+          <Carousel className="w-full max-w-5xl mx-auto">
+            <CarouselContent>
+              {galleryImages.slice(0, 4).map((image) => (
+                <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="group bg-obsidian/50 border-gold/20 overflow-hidden hover:border-gold/50 transition-all duration-500">
+                    <div className="relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-xl font-montserrat font-bold text-gold mb-2">
+                          {image.title}
+                        </h3>
+                        <p className="text-gray-300 font-montserrat mb-3">
+                          {image.description}
+                        </p>
+                        <span className="inline-block px-3 py-1 bg-sage text-white text-sm font-montserrat rounded-full">
+                          {image.category}
+                        </span>
+                      </div>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-gold text-forest hover:bg-gold/90" />
+            <CarouselNext className="bg-gold text-forest hover:bg-gold/90" />
+          </Carousel>
+        </div>
+      </section>
+
       {/* Filter Section */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gradient-to-r from-forest/50 to-sage/50">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <Button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 hover:scale-105 ${
+                className={`px-8 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 hover:scale-105 ${
                   selectedCategory === category
-                    ? 'bg-sage text-white'
-                    : 'bg-transparent border border-sage text-sage hover:bg-sage hover:text-white'
+                    ? 'bg-gold text-forest shadow-lg shadow-gold/25'
+                    : 'bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-forest'
                 }`}
               >
                 {category}
@@ -164,13 +185,13 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-obsidian via-forest to-sage">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredImages.map((image, index) => (
               <Card 
                 key={image.id} 
-                className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden"
+                className="group bg-obsidian/30 border-gold/20 hover:border-gold/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2 overflow-hidden backdrop-blur-sm"
               >
                 <div className="relative">
                   <img 
@@ -183,10 +204,10 @@ const Gallery = () => {
                     <h3 className="text-xl font-montserrat font-bold text-gold mb-2">
                       {image.title}
                     </h3>
-                    <p className="text-gray-300 font-montserrat">
+                    <p className="text-gray-300 font-montserrat mb-3">
                       {image.description}
                     </p>
-                    <span className="inline-block mt-2 px-3 py-1 bg-sage text-white text-sm font-montserrat rounded-full">
+                    <span className="inline-block px-3 py-1 bg-sage text-white text-sm font-montserrat rounded-full">
                       {image.category}
                     </span>
                   </div>

@@ -33,10 +33,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-forest font-playfair font-bold text-xl">A</span>
+            <div className="w-16 h-16 group-hover:scale-110 transition-transform duration-300">
+              <img 
+                src="/lovable-uploads/8d1c2c41-89c0-4ff4-adec-6b9fb7b9bac0.png" 
+                alt="The Art Barber Shop" 
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="text-gold font-montserrat font-bold text-xl">The Art</span>
           </Link>
 
           {/* Desktop Navigation */}
