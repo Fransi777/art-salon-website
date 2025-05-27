@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Footer = () => {
-  return (
-    <footer className="bg-obsidian text-gold py-16">
+  return <footer className="bg-obsidian text-gold py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -27,7 +24,7 @@ const Footer = () => {
                 <span className="text-sm font-bold">ig</span>
               </div>
               <div className="w-10 h-10 bg-forest rounded-full flex items-center justify-center hover:bg-gold hover:text-forest transition-colors duration-300 cursor-pointer">
-                <span className="text-sm font-bold">tw</span>
+                <span className="text-sm font-bold">TiK</span>
               </div>
             </div>
           </div>
@@ -36,16 +33,11 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-montserrat font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'About', 'Gallery', 'Services', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                    className="text-gray-400 hover:text-gold transition-colors duration-300 font-montserrat"
-                  >
+              {['Home', 'About', 'Gallery', 'Services', 'Contact'].map(item => <li key={item}>
+                  <Link to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="text-gray-400 hover:text-gold transition-colors duration-300 font-montserrat">
                     {item}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -54,7 +46,7 @@ const Footer = () => {
             <h3 className="text-white font-montserrat font-semibold text-lg mb-6">Contact</h3>
             <div className="space-y-3 text-gray-400 font-montserrat">
               <p>123 Style Street<br />Urban District<br />City, State 12345</p>
-              <p>Phone: (555) 123-4567</p>
+              <p>Phone: 0966888688</p>
               <p>Email: info@theart.com</p>
             </div>
           </div>
@@ -75,8 +67,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
