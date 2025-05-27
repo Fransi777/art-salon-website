@@ -6,7 +6,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -23,64 +25,94 @@ const Contact = () => {
     {
       title: "Address",
       details: ["123 Style Street", "Urban District", "City, State 12345"],
-      icon: "📍"
+      icon: MapPin
     },
     {
       title: "Phone",
       details: ["(555) 123-4567", "Call or Text"],
-      icon: "📞"
+      icon: Phone
     },
     {
       title: "Email",
       details: ["info@theart.com", "bookings@theart.com"],
-      icon: "✉️"
+      icon: Mail
     },
     {
       title: "Hours",
       details: ["Mon-Fri: 9AM - 8PM", "Sat: 8AM - 6PM", "Sun: 10AM - 4PM"],
-      icon: "⏰"
+      icon: Clock
     }
   ];
 
   return (
-    <div className="min-h-screen bg-obsidian">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/70 to-transparent z-10"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center"></div>
-        
-        <div className="relative z-20 container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-montserrat font-black text-gold mb-6 animate-fade-in">
-              Get In <span className="font-playfair italic">Touch</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white font-montserrat font-light animate-fade-in">
-              Ready to Experience Premium Barbering?
-            </p>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-8">
+              <div className="animate-fade-in">
+                <h1 className="text-6xl md:text-7xl font-montserrat font-black text-obsidian leading-tight">
+                  Get In
+                  <br />
+                  <span className="text-obsidian">Touch</span>
+                  <br />
+                  <span className="font-playfair italic text-5xl md:text-6xl text-sage">With Us</span>
+                </h1>
+              </div>
+              
+              <p className="text-lg text-gray-600 font-montserrat max-w-lg leading-relaxed">
+                Ready to experience premium barbering? Contact us today to schedule your appointment 
+                or get answers to any questions you may have.
+              </p>
+
+              <Button className="bg-sage text-white hover:bg-sage/90 font-montserrat font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105">
+                <Calendar className="mr-2 h-5 w-5" />
+                Book Appointment
+              </Button>
+            </div>
+
+            {/* Right Content - Contact Image */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative animate-slide-in-right">
+                <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-3xl transform rotate-3"></div>
+                <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                  <img 
+                    src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="Contact Us" 
+                    className="w-full h-[500px] object-cover rounded-2xl"
+                  />
+                </div>
+                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold/20 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-sage/20 rounded-full blur-lg"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Info Grid */}
-      <section className="py-20 bg-forest">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
               <Card 
                 key={info.title} 
-                className={`bg-obsidian border-bronze hover:border-gold transition-all duration-500 hover:scale-105 animate-scale-in`}
-                style={{animationDelay: `${index * 150}ms`}}
+                className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
               >
                 <CardContent className="p-8 text-center">
-                  <div className="text-5xl mb-4">{info.icon}</div>
-                  <h3 className="text-xl font-montserrat font-bold text-gold mb-4">
+                  <div className="w-16 h-16 bg-sage/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-sage group-hover:scale-110 transition-all duration-300">
+                    <info.icon className="h-8 w-8 text-sage group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-xl font-montserrat font-bold text-obsidian mb-4 group-hover:text-sage transition-colors duration-300">
                     {info.title}
                   </h3>
                   <div className="space-y-2">
                     {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-300 font-montserrat">
+                      <p key={idx} className="text-gray-600 font-montserrat">
                         {detail}
                       </p>
                     ))}
@@ -92,128 +124,145 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Map */}
-      <section className="py-20 bg-gradient-to-r from-sage to-pine">
+      {/* Advanced Contact Form */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div className="animate-slide-in-left">
-              <h2 className="text-4xl font-montserrat font-bold text-gold mb-8">
-                Send Us a Message
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-obsidian mb-6">
+                Send Us a <span className="font-playfair italic text-sage">Message</span>
               </h2>
-              <Card className="bg-obsidian border-bronze shadow-2xl">
-                <CardContent className="p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+              <p className="text-xl text-gray-600 font-montserrat max-w-2xl mx-auto">
+                Fill out the form below and we'll get back to you as soon as possible
+              </p>
+            </div>
+
+            <Card className="bg-white shadow-2xl border-0 rounded-3xl overflow-hidden">
+              <CardContent className="p-12">
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  {/* Personal Information */}
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-montserrat font-bold text-obsidian mb-6">
+                      Personal Information
+                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <Input 
-                        placeholder="First Name" 
-                        className="bg-forest border-bronze text-gold placeholder:text-gray-400 focus:border-gold transition-colors duration-300"
-                        required
-                      />
-                      <Input 
-                        placeholder="Last Name" 
-                        className="bg-forest border-bronze text-gold placeholder:text-gray-400 focus:border-gold transition-colors duration-300"
-                        required
+                      <div className="space-y-2">
+                        <Label htmlFor="firstName" className="text-obsidian font-montserrat font-semibold">
+                          First Name *
+                        </Label>
+                        <Input 
+                          id="firstName"
+                          placeholder="Enter your first name" 
+                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
+                          required
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="lastName" className="text-obsidian font-montserrat font-semibold">
+                          Last Name *
+                        </Label>
+                        <Input 
+                          id="lastName"
+                          placeholder="Enter your last name" 
+                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Contact Details */}
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-montserrat font-bold text-obsidian mb-6">
+                      Contact Details
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-obsidian font-montserrat font-semibold">
+                          Email Address *
+                        </Label>
+                        <Input 
+                          id="email"
+                          type="email" 
+                          placeholder="your.email@example.com" 
+                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
+                          required
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone" className="text-obsidian font-montserrat font-semibold">
+                          Phone Number
+                        </Label>
+                        <Input 
+                          id="phone"
+                          type="tel" 
+                          placeholder="(555) 123-4567" 
+                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Appointment Preferences */}
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-montserrat font-bold text-obsidian mb-6">
+                      Appointment Preferences
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="service" className="text-obsidian font-montserrat font-semibold">
+                          Preferred Service
+                        </Label>
+                        <Input 
+                          id="service"
+                          placeholder="e.g., Signature Cut, Master Fade" 
+                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="date" className="text-obsidian font-montserrat font-semibold">
+                          Preferred Date
+                        </Label>
+                        <Input 
+                          id="date"
+                          type="date" 
+                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-montserrat font-bold text-obsidian mb-6">
+                      Additional Information
+                    </h3>
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-obsidian font-montserrat font-semibold">
+                        Message
+                      </Label>
+                      <Textarea 
+                        id="message"
+                        placeholder="Tell us about your preferred style, any special requests, or questions you may have..." 
+                        rows={6}
+                        className="border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300 resize-none"
                       />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <Input 
-                        type="email" 
-                        placeholder="Email Address" 
-                        className="bg-forest border-bronze text-gold placeholder:text-gray-400 focus:border-gold transition-colors duration-300"
-                        required
-                      />
-                      <Input 
-                        type="tel" 
-                        placeholder="Phone Number" 
-                        className="bg-forest border-bronze text-gold placeholder:text-gray-400 focus:border-gold transition-colors duration-300"
-                      />
-                    </div>
-                    <Input 
-                      placeholder="Subject" 
-                      className="bg-forest border-bronze text-gold placeholder:text-gray-400 focus:border-gold transition-colors duration-300"
-                      required
-                    />
-                    <Textarea 
-                      placeholder="Your message..." 
-                      rows={6}
-                      className="bg-forest border-bronze text-gold placeholder:text-gray-400 focus:border-gold transition-colors duration-300"
-                      required
-                    />
-                    <Button type="submit" className="w-full bg-gold text-forest hover:bg-gold/90 font-montserrat font-bold text-lg py-4 rounded-full transition-all duration-300 hover:scale-105">
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-6">
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-sage text-white hover:bg-sage/90 font-montserrat font-bold text-lg py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                    >
+                      <Mail className="mr-2 h-5 w-5" />
                       Send Message
                     </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Map & Additional Info */}
-            <div className="animate-slide-in-right">
-              <h2 className="text-4xl font-montserrat font-bold text-gold mb-8">
-                Visit Our Shop
-              </h2>
-              
-              {/* Map Placeholder */}
-              <Card className="bg-obsidian border-bronze shadow-2xl mb-8">
-                <CardContent className="p-0">
-                  <div className="w-full h-80 bg-forest rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl text-gold mb-4">🗺️</div>
-                      <p className="text-gold font-montserrat font-semibold">
-                        Interactive Map
-                      </p>
-                      <p className="text-gray-300 font-montserrat text-sm">
-                        123 Style Street, Urban District
-                      </p>
-                    </div>
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Directions & Parking */}
-              <Card className="bg-obsidian border-bronze shadow-2xl">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-montserrat font-bold text-gold mb-6">
-                    Directions & Parking
-                  </h3>
-                  <div className="space-y-4 text-gray-300 font-montserrat">
-                    <div>
-                      <h4 className="text-gold font-semibold mb-2">By Car:</h4>
-                      <p>Free street parking available. Parking garage located one block east on Main Street.</p>
-                    </div>
-                    <div>
-                      <h4 className="text-gold font-semibold mb-2">Public Transit:</h4>
-                      <p>Blue Line Metro - Style Street Station (2 blocks), Bus routes 15, 23, 45.</p>
-                    </div>
-                    <div>
-                      <h4 className="text-gold font-semibold mb-2">Landmarks:</h4>
-                      <p>Located between City Coffee House and Urban Fashion Boutique.</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking CTA */}
-      <section className="py-20 bg-obsidian">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-gold mb-6 animate-fade-in">
-            Prefer to Book <span className="font-playfair italic">Directly</span>?
-          </h2>
-          <p className="text-xl text-gray-300 font-montserrat mb-8 max-w-2xl mx-auto animate-fade-in">
-            Call us directly or use our online booking system for the fastest appointment scheduling.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gold text-forest hover:bg-gold/90 font-montserrat font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 animate-glow">
-              Online Booking
-            </Button>
-            <Button variant="outline" className="border-gold text-gold hover:bg-gold hover:text-forest font-montserrat font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 hover:scale-105">
-              Call: (555) 123-4567
-            </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
