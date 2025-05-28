@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -224,44 +223,44 @@ const Index = () => {
             {luxuryServices.map((service, index) => (
               <Card 
                 key={service.title} 
-                className={`group relative bg-gradient-to-br ${service.gradient} backdrop-blur-xl border-0 transition-all duration-700 hover:scale-105 hover:shadow-2xl rounded-3xl overflow-hidden`}
+                className="group relative bg-gradient-to-br from-[#173d26] to-[#173d26]/80 backdrop-blur-xl border-2 border-[#efe0bf]/30 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-[#efe0bf]/20 rounded-3xl overflow-hidden hover:border-[#efe0bf]/60"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Gradient border effect */}
-                <div className={`absolute inset-0 bg-gradient-to-r from-${service.accent} via-transparent to-${service.accent} opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-3xl`} />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#efe0bf]/20 via-transparent to-[#efe0bf]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                 
                 {/* Floating particles */}
                 <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                  <div className={`absolute top-4 left-4 w-2 h-2 bg-${service.accent} rounded-full opacity-40 animate-pulse`} style={{ animationDelay: '0s' }} />
-                  <div className={`absolute top-8 right-6 w-1 h-1 bg-${service.accent} rounded-full opacity-60 animate-pulse`} style={{ animationDelay: '1s' }} />
-                  <div className={`absolute bottom-6 left-8 w-1.5 h-1.5 bg-${service.accent} rounded-full opacity-50 animate-pulse`} style={{ animationDelay: '2s' }} />
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-[#efe0bf] rounded-full opacity-40 animate-pulse" style={{ animationDelay: '0s' }} />
+                  <div className="absolute top-8 right-6 w-1 h-1 bg-[#efe0bf] rounded-full opacity-60 animate-pulse" style={{ animationDelay: '1s' }} />
+                  <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-[#efe0bf] rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s' }} />
                 </div>
 
                 <CardContent className="p-8 text-center relative z-10">
                   <div className="mb-8 relative">
-                    <div className={`w-24 h-24 bg-gradient-to-br from-${service.accent}/30 to-transparent rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border border-${service.accent}/40 shadow-lg`}>
-                      <service.icon className={`w-12 h-12 text-${service.accent}`} />
+                    <div className="w-24 h-24 bg-gradient-to-br from-[#efe0bf]/30 to-[#efe0bf]/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border border-[#efe0bf]/40 shadow-lg">
+                      <service.icon className="w-12 h-12 text-[#efe0bf]" />
                     </div>
                     
                     {/* Glow effect */}
-                    <div className={`absolute inset-0 w-24 h-24 mx-auto bg-${service.accent} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
+                    <div className="absolute inset-0 w-24 h-24 mx-auto bg-[#efe0bf] rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
                   </div>
                   
-                  <h3 className="text-2xl font-playfair font-bold text-white mb-4 group-hover:text-gold transition-colors duration-300">
+                  <h3 className="text-2xl font-playfair font-bold text-[#efe0bf] mb-4 group-hover:text-white transition-colors duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-300 font-montserrat mb-6 leading-relaxed">
+                  <p className="text-[#efe0bf]/80 font-montserrat mb-6 leading-relaxed">
                     {service.description}
                   </p>
                   
-                  <div className="text-gold font-montserrat font-bold text-xl mb-8">
+                  <div className="text-[#efe0bf] font-montserrat font-bold text-xl mb-8">
                     {service.price}
                   </div>
                   
                   <Button 
                     onClick={handleBookNow}
-                    className={`w-full bg-transparent border-2 border-${service.accent} text-${service.accent} hover:bg-${service.accent} hover:text-white transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-${service.accent}/30`}
+                    className="w-full bg-transparent border-2 border-[#efe0bf] text-[#efe0bf] hover:bg-[#efe0bf] hover:text-[#173d26] transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-[#efe0bf]/30"
                   >
                     Select Service
                   </Button>
