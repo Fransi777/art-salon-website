@@ -1,43 +1,42 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Users, Star, Target, Heart, Gem } from 'lucide-react';
-
 const About = () => {
-  const team = [
-    {
-      name: "Marcus 'The Artist' Johnson",
-      role: "Master Barber & Founder",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      experience: "15+ years",
-      specialty: "Precision Fades & Hair Art"
-    },
-    {
-      name: "Kevin 'Smooth' Williams",
-      role: "Senior Barber",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      experience: "10+ years",
-      specialty: "Beard Sculpting & Classic Cuts"
-    },
-    {
-      name: "Andre 'The Craftsman' Davis",
-      role: "Creative Barber",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      experience: "8+ years",
-      specialty: "Modern Styles & Line-ups"
-    }
-  ];
-
-  const stats = [
-    { number: "+20", label: "Years Of Experience", icon: Award },
-    { number: "+80", label: "Our Awesome Expert", icon: Users },
-    { number: "+20K", label: "Happy Customer", icon: Star }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white">
+  const team = [{
+    name: "Marcus 'The Artist' Johnson",
+    role: "Master Barber & Founder",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    experience: "15+ years",
+    specialty: "Precision Fades & Hair Art"
+  }, {
+    name: "Kevin 'Smooth' Williams",
+    role: "Senior Barber",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    experience: "10+ years",
+    specialty: "Beard Sculpting & Classic Cuts"
+  }, {
+    name: "Andre 'The Craftsman' Davis",
+    role: "Creative Barber",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    experience: "8+ years",
+    specialty: "Modern Styles & Line-ups"
+  }];
+  const stats = [{
+    number: "+20",
+    label: "Years Of Experience",
+    icon: Award
+  }, {
+    number: "+80",
+    label: "Our Awesome Expert",
+    icon: Users
+  }, {
+    number: "+20K",
+    label: "Happy Customer",
+    icon: Star
+  }];
+  return <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section */}
@@ -63,8 +62,7 @@ const About = () => {
 
               {/* Stats Section */}
               <div className="grid grid-cols-3 gap-6 pt-8">
-                {stats.map((stat, index) => (
-                  <div key={stat.label} className="text-center">
+                {stats.map((stat, index) => <div key={stat.label} className="text-center">
                     <div className="flex justify-center mb-2">
                       <stat.icon className="h-6 w-6 text-sage" />
                     </div>
@@ -74,8 +72,7 @@ const About = () => {
                     <div className="text-sm text-gray-600 font-montserrat">
                       {stat.label}
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
 
@@ -84,11 +81,7 @@ const About = () => {
               <div className="relative animate-slide-in-right">
                 <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-3xl transform rotate-3"></div>
                 <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1622286346003-c4b4f5d3b7bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="The Art Barbershop Interior" 
-                    className="w-full h-[500px] object-cover rounded-2xl"
-                  />
+                  <img alt="The Art Barbershop Interior" className="w-full h-[500px] object-cover rounded-2xl" src="/lovable-uploads/168c55fc-99af-4f1b-bec6-1ce8003e5fbb.jpg" />
                 </div>
                 <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-sage/20 rounded-full blur-lg"></div>
@@ -169,16 +162,11 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <Card key={member.name} className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+            {team.map((member, index) => <Card key={member.name} className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
                 <CardContent className="p-8">
                   <div className="relative mb-6">
                     <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-xl transform rotate-2 group-hover:rotate-0 transition-transform duration-300"></div>
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="relative w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <img src={member.image} alt={member.name} className="relative w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-2xl font-montserrat font-bold text-obsidian mb-2 group-hover:text-sage transition-colors duration-300">
                     {member.name}
@@ -191,15 +179,12 @@ const About = () => {
                     <p><span className="text-sage font-semibold">Specialty:</span> {member.specialty}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
