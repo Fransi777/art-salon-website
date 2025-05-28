@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -7,22 +6,39 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 import { Scissors, Sparkles, Crown, Star, Users, Award, Calendar, Clock, Trophy, Shield } from 'lucide-react';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { toast } = useToast();
+  const navigate = useNavigate();
+
+  const heroImages = [
+    "/lovable-uploads/2f73b8eb-c08c-42d9-ad2d-8c3b4c89c695.png",
+    "/lovable-uploads/400a0cf3-6dc8-4b52-a674-af3495eb386b.png",
+    "/lovable-uploads/cd3c3732-5a9c-4a54-b64b-f50d0e71cab0.png"
+  ];
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Auto-rotate hero images with fade effect
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+
+    return () => clearInterval(imageInterval);
   }, []);
 
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Booking Request Sent!",
-      description: "We'll contact you soon to confirm your appointment.",
-    });
+    navigate('/contact');
+  };
+
+  const handleBookNow = () => {
+    navigate('/contact');
   };
 
   const services = [
@@ -88,7 +104,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Enhanced Hero Section with Image Carousel */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-obsidian/5 via-sage/10 to-gold/5"></div>
@@ -123,7 +139,10 @@ const Index = () => {
               <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-500 ${
                 isVisible ? 'animate-fade-in' : 'opacity-0'
               }`}>
-                <Button className="bg-sage text-white hover:bg-sage/90 font-montserrat font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <Button 
+                  onClick={handleBookNow}
+                  className="bg-sage text-white hover:bg-sage/90 font-montserrat font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                >
                   <Calendar className="mr-2 h-5 w-5" />
                   Book Your Session
                 </Button>
@@ -155,47 +174,44 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right Content - Featured Images */}
+            {/* Right Content - Enhanced Image Carousel */}
             <div className="relative">
               <div className={`relative transition-all duration-1000 delay-300 ${
                 isVisible ? 'animate-slide-in-right' : 'opacity-0'
               }`}>
-                <div className="grid grid-cols-2 gap-6">
-                  {/* Main large image */}
-                  <div className="col-span-2 relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-gold/20 rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                    <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-1 group-hover:rotate-0 transition-transform duration-500">
-                      <img 
-                        src="/lovable-uploads/cd3c3732-5a9c-4a54-b64b-f50d0e71cab0.png" 
-                        alt="Premium Barber Service" 
-                        className="w-full h-80 object-cover rounded-2xl"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/20 via-transparent to-transparent rounded-2xl"></div>
+                {/* Main featured image with smooth transitions */}
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-gold/20 rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
+                  <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-1 group-hover:rotate-0 transition-transform duration-500 overflow-hidden">
+                    <div className="relative h-96 rounded-2xl overflow-hidden">
+                      {heroImages.map((image, index) => (
+                        <img
+                          key={index}
+                          src={image}
+                          alt={`Premium Barber Service ${index + 1}`}
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                          }`}
+                        />
+                      ))}
+                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/20 via-transparent to-transparent"></div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Two smaller images */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-sage/20 rounded-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
-                    <div className="relative bg-white rounded-2xl shadow-xl p-3 transform -rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                      <img 
-                        src="/lovable-uploads/2f73b8eb-c08c-42d9-ad2d-8c3b4c89c695.png" 
-                        alt="Barber Tools" 
-                        className="w-full h-48 object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-gold/20 rounded-2xl transform -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
-                    <div className="relative bg-white rounded-2xl shadow-xl p-3 transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                      <img 
-                        src="/lovable-uploads/400a0cf3-6dc8-4b52-a674-af3495eb386b.png" 
-                        alt="Master Barber at Work" 
-                        className="w-full h-48 object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
+                {/* Image indicators */}
+                <div className="flex justify-center mt-6 space-x-3">
+                  {heroImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-sage scale-125' 
+                          : 'bg-gray-300 hover:bg-sage/60'
+                      }`}
+                    />
+                  ))}
                 </div>
 
                 {/* Floating elements */}
@@ -250,7 +266,11 @@ const Index = () => {
                     <div className="text-2xl font-montserrat font-bold text-sage">
                       {service.price}
                     </div>
-                    <Button size="sm" className="bg-sage/10 text-sage hover:bg-sage hover:text-white transition-all duration-300">
+                    <Button 
+                      onClick={handleBookNow}
+                      size="sm" 
+                      className="bg-sage/10 text-sage hover:bg-sage hover:text-white transition-all duration-300"
+                    >
                       Book Now
                     </Button>
                   </div>
