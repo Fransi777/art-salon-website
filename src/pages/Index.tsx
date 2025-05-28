@@ -117,7 +117,7 @@ const Index = () => {
             <div className="mb-8 animate-scale-in" style={{
             animationDelay: '0.5s'
           }}>
-              <img src="/lovable-uploads/fb01ca19-0340-4e03-8f65-cf04865664d6.png" alt="The Art Barbershop Logo" className="w-32 h-32 mx-auto filter drop-shadow-2xl hover:scale-110 transition-transform duration-500" />
+              <img src="/lovable-uploads/fb01ca19-0340-4e03-8f65-cf04865664d6.png" alt="The Art Barbershop Logo" className="w-32 h-32 mx-auto filter drop-shadow-2xl hover:scale-110 transition-transform duration-700 object-scale-down" />
             </div>
 
             {/* Main Headline */}
