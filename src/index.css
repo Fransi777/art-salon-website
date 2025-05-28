@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,20 +36,20 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Barbershop Colors */
+    --obsidian: #2c3e32;
+    --sage: #87a96b;
+    --gold: #d4af37;
+    --forest: #1e2a23;
+    --bronze: #cd7f32;
   }
 
   .dark {
@@ -98,4 +99,45 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom Barbershop Color Classes */
+.text-obsidian {
+  color: var(--obsidian);
+}
+
+.bg-obsidian {
+  background-color: var(--obsidian);
+}
+
+.text-sage {
+  color: var(--sage);
+}
+
+.bg-sage {
+  background-color: var(--sage);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.text-forest {
+  color: var(--forest);
+}
+
+.bg-forest {
+  background-color: var(--forest);
+}
+
+.text-bronze {
+  color: var(--bronze);
+}
+
+.bg-bronze {
+  background-color: var(--bronze);
 }

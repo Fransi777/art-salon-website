@@ -39,7 +39,7 @@ const Navigation = () => {
           {/* Official Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <img 
-              src="/lovable-uploads/8d1c2c41-89c0-4ff4-adec-6b9fb7b9bac0.png" 
+              src="/lovable-uploads/fb01ca19-0340-4e03-8f65-cf04865664d6.png" 
               alt="The Art Barbershop Logo" 
               className="w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300"
             />
