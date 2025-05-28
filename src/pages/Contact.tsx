@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -9,43 +8,35 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
-
 const Contact = () => {
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you within 24 hours."
     });
   };
-
-  const contactInfo = [
-    {
-      title: "Address",
-      details: ["123 Style Street", "Urban District", "City, State 12345"],
-      icon: MapPin
-    },
-    {
-      title: "Phone",
-      details: ["(555) 123-4567", "Call or Text"],
-      icon: Phone
-    },
-    {
-      title: "Email",
-      details: ["info@theart.com", "bookings@theart.com"],
-      icon: Mail
-    },
-    {
-      title: "Hours",
-      details: ["Mon-Fri: 9AM - 8PM", "Sat: 8AM - 6PM", "Sun: 10AM - 4PM"],
-      icon: Clock
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white">
+  const contactInfo = [{
+    title: "Address",
+    details: ["123 Style Street", "Urban District", "City, State 12345"],
+    icon: MapPin
+  }, {
+    title: "Phone",
+    details: ["(555) 123-4567", "Call or Text"],
+    icon: Phone
+  }, {
+    title: "Email",
+    details: ["info@theart.com", "bookings@theart.com"],
+    icon: Mail
+  }, {
+    title: "Hours",
+    details: ["Mon-Fri: 9AM - 8PM", "Sat: 8AM - 6PM", "Sun: 10AM - 4PM"],
+    icon: Clock
+  }];
+  return <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section */}
@@ -80,11 +71,7 @@ const Contact = () => {
               <div className="relative animate-slide-in-right">
                 <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-3xl transform rotate-3"></div>
                 <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="Contact Us" 
-                    className="w-full h-[500px] object-cover rounded-2xl"
-                  />
+                  <img alt="Contact Us" className="w-full h-[500px] object-cover rounded-2xl" src="/lovable-uploads/9e9c53bc-beda-4b09-bee8-d43fce62ef07.jpg" />
                 </div>
                 <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-sage/20 rounded-full blur-lg"></div>
@@ -98,11 +85,7 @@ const Contact = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfo.map((info, index) => (
-              <Card 
-                key={info.title} 
-                className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-              >
+            {contactInfo.map((info, index) => <Card key={info.title} className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-sage/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-sage group-hover:scale-110 transition-all duration-300">
                     <info.icon className="h-8 w-8 text-sage group-hover:text-white transition-colors duration-300" />
@@ -111,15 +94,12 @@ const Contact = () => {
                     {info.title}
                   </h3>
                   <div className="space-y-2">
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-600 font-montserrat">
+                    {info.details.map((detail, idx) => <p key={idx} className="text-gray-600 font-montserrat">
                         {detail}
-                      </p>
-                    ))}
+                      </p>)}
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -150,23 +130,13 @@ const Contact = () => {
                         <Label htmlFor="firstName" className="text-obsidian font-montserrat font-semibold">
                           First Name *
                         </Label>
-                        <Input 
-                          id="firstName"
-                          placeholder="Enter your first name" 
-                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
-                          required
-                        />
+                        <Input id="firstName" placeholder="Enter your first name" className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName" className="text-obsidian font-montserrat font-semibold">
                           Last Name *
                         </Label>
-                        <Input 
-                          id="lastName"
-                          placeholder="Enter your last name" 
-                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
-                          required
-                        />
+                        <Input id="lastName" placeholder="Enter your last name" className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300" required />
                       </div>
                     </div>
                   </div>
@@ -181,24 +151,13 @@ const Contact = () => {
                         <Label htmlFor="email" className="text-obsidian font-montserrat font-semibold">
                           Email Address *
                         </Label>
-                        <Input 
-                          id="email"
-                          type="email" 
-                          placeholder="your.email@example.com" 
-                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
-                          required
-                        />
+                        <Input id="email" type="email" placeholder="your.email@example.com" className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-obsidian font-montserrat font-semibold">
                           Phone Number
                         </Label>
-                        <Input 
-                          id="phone"
-                          type="tel" 
-                          placeholder="(555) 123-4567" 
-                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
-                        />
+                        <Input id="phone" type="tel" placeholder="(555) 123-4567" className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300" />
                       </div>
                     </div>
                   </div>
@@ -213,21 +172,13 @@ const Contact = () => {
                         <Label htmlFor="service" className="text-obsidian font-montserrat font-semibold">
                           Preferred Service
                         </Label>
-                        <Input 
-                          id="service"
-                          placeholder="e.g., Signature Cut, Master Fade" 
-                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
-                        />
+                        <Input id="service" placeholder="e.g., Signature Cut, Master Fade" className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="date" className="text-obsidian font-montserrat font-semibold">
                           Preferred Date
                         </Label>
-                        <Input 
-                          id="date"
-                          type="date" 
-                          className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300"
-                        />
+                        <Input id="date" type="date" className="h-12 border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300" />
                       </div>
                     </div>
                   </div>
@@ -241,21 +192,13 @@ const Contact = () => {
                       <Label htmlFor="message" className="text-obsidian font-montserrat font-semibold">
                         Message
                       </Label>
-                      <Textarea 
-                        id="message"
-                        placeholder="Tell us about your preferred style, any special requests, or questions you may have..." 
-                        rows={6}
-                        className="border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300 resize-none"
-                      />
+                      <Textarea id="message" placeholder="Tell us about your preferred style, any special requests, or questions you may have..." rows={6} className="border-gray-200 focus:border-sage focus:ring-sage rounded-xl transition-all duration-300 resize-none" />
                     </div>
                   </div>
 
                   {/* Submit Button */}
                   <div className="pt-6">
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-sage text-white hover:bg-sage/90 font-montserrat font-bold text-lg py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
-                    >
+                    <Button type="submit" className="w-full bg-sage text-white hover:bg-sage/90 font-montserrat font-bold text-lg py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
                       <Mail className="mr-2 h-5 w-5" />
                       Send Message
                     </Button>
@@ -268,8 +211,6 @@ const Contact = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
