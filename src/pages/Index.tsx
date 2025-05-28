@@ -8,106 +8,83 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
 import { Scissors, Sparkles, Crown, Star, Users, Award, Calendar, Clock, Trophy, Shield, Play, ChevronDown } from 'lucide-react';
-
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
-
-  const heroImages = [
-    "/lovable-uploads/2f73b8eb-c08c-42d9-ad2d-8c3b4c89c695.png",
-    "/lovable-uploads/400a0cf3-6dc8-4b52-a674-af3495eb386b.png",
-    "/lovable-uploads/cd3c3732-5a9c-4a54-b64b-f50d0e71cab0.png"
-  ];
-
+  const heroImages = ["/lovable-uploads/2f73b8eb-c08c-42d9-ad2d-8c3b4c89c695.png", "/lovable-uploads/400a0cf3-6dc8-4b52-a674-af3495eb386b.png", "/lovable-uploads/cd3c3732-5a9c-4a54-b64b-f50d0e71cab0.png"];
   useEffect(() => {
     setIsVisible(true);
-    
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    
     const imageInterval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      setCurrentImageIndex(prev => (prev + 1) % heroImages.length);
     }, 5000);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearInterval(imageInterval);
     };
   }, []);
-
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
     navigate('/contact');
   };
-
   const handleBookNow = () => {
     navigate('/contact');
   };
-
-  const luxuryServices = [
-    { 
-      title: "Signature Cuts", 
-      icon: Scissors, 
-      description: "Precision sculpting with master techniques",
-      price: "From $85",
-      gradient: "from-blue-600/20 to-purple-600/20",
-      accent: "blue-500"
-    },
-    { 
-      title: "Royal Grooming", 
-      icon: Crown, 
-      description: "Complete luxury grooming experience",
-      price: "From $120",
-      gradient: "from-purple-600/20 to-pink-600/20",
-      accent: "purple-500"
-    },
-    { 
-      title: "Beard Artistry", 
-      icon: Sparkles, 
-      description: "Expert beard styling and maintenance",
-      price: "From $45",
-      gradient: "from-emerald-600/20 to-teal-600/20",
-      accent: "emerald-500"
-    },
-    { 
-      title: "VIP Experience", 
-      icon: Trophy, 
-      description: "Private suite with premium services",
-      price: "From $200",
-      gradient: "from-amber-600/20 to-orange-600/20",
-      accent: "amber-500"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Kebede Tadesse",
-      text: "The Art delivers exceptional craftsmanship. Every cut is a masterpiece that perfectly suits my style!",
-      rating: 5,
-      role: "Business Executive",
-      gradient: "from-indigo-600/20 to-blue-600/20"
-    },
-    {
-      name: "Amanuel Bekele",
-      text: "Unmatched skill and attention to detail. This is barbering elevated to art. Highly recommend!",
-      rating: 5,
-      role: "Creative Director",
-      gradient: "from-violet-600/20 to-purple-600/20"
-    },
-    {
-      name: "Meles Alemu",
-      text: "Premium experience from start to finish. The barbers truly understand modern Ethiopian style.",
-      rating: 5,
-      role: "Entrepreneur",
-      gradient: "from-rose-600/20 to-pink-600/20"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+  const luxuryServices = [{
+    title: "Signature Cuts",
+    icon: Scissors,
+    description: "Precision sculpting with master techniques",
+    price: "From $85",
+    gradient: "from-blue-600/20 to-purple-600/20",
+    accent: "blue-500"
+  }, {
+    title: "Royal Grooming",
+    icon: Crown,
+    description: "Complete luxury grooming experience",
+    price: "From $120",
+    gradient: "from-purple-600/20 to-pink-600/20",
+    accent: "purple-500"
+  }, {
+    title: "Beard Artistry",
+    icon: Sparkles,
+    description: "Expert beard styling and maintenance",
+    price: "From $45",
+    gradient: "from-emerald-600/20 to-teal-600/20",
+    accent: "emerald-500"
+  }, {
+    title: "VIP Experience",
+    icon: Trophy,
+    description: "Private suite with premium services",
+    price: "From $200",
+    gradient: "from-amber-600/20 to-orange-600/20",
+    accent: "amber-500"
+  }];
+  const testimonials = [{
+    name: "Kebede Tadesse",
+    text: "The Art delivers exceptional craftsmanship. Every cut is a masterpiece that perfectly suits my style!",
+    rating: 5,
+    role: "Business Executive",
+    gradient: "from-indigo-600/20 to-blue-600/20"
+  }, {
+    name: "Amanuel Bekele",
+    text: "Unmatched skill and attention to detail. This is barbering elevated to art. Highly recommend!",
+    rating: 5,
+    role: "Creative Director",
+    gradient: "from-violet-600/20 to-purple-600/20"
+  }, {
+    name: "Meles Alemu",
+    text: "Premium experience from start to finish. The barbers truly understand modern Ethiopian style.",
+    rating: 5,
+    role: "Entrepreneur",
+    gradient: "from-rose-600/20 to-pink-600/20"
+  }];
+  return <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navigation />
       
       {/* Cinematic Hero Section */}
@@ -115,46 +92,32 @@ const Index = () => {
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="absolute inset-0 opacity-20">
-            {heroImages.map((image, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-2000 ${
-                  currentImageIndex === index ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{
-                  backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  filter: 'brightness(0.3) contrast(1.2)'
-                }}
-              />
-            ))}
+            {heroImages.map((image, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-2000 ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`} style={{
+            backgroundImage: `url(${image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'brightness(0.3) contrast(1.2)'
+          }} />)}
           </div>
           
           {/* Parallax Elements */}
-          <div 
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse"
-            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-          />
-          <div 
-            className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-white/3 rounded-full blur-2xl animate-pulse"
-            style={{ 
-              transform: `translateY(${scrollY * -0.3}px)`,
-              animationDelay: '2s'
-            }}
-          />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse" style={{
+          transform: `translateY(${scrollY * 0.5}px)`
+        }} />
+          <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-white/3 rounded-full blur-2xl animate-pulse" style={{
+          transform: `translateY(${scrollY * -0.3}px)`,
+          animationDelay: '2s'
+        }} />
         </div>
 
         {/* Hero Content */}
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className={`transition-all duration-1500 ${isVisible ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
             {/* Logo Animation */}
-            <div className="mb-8 animate-scale-in" style={{ animationDelay: '0.5s' }}>
-              <img 
-                src="/lovable-uploads/fb01ca19-0340-4e03-8f65-cf04865664d6.png" 
-                alt="The Art Barbershop Logo" 
-                className="w-32 h-32 mx-auto filter drop-shadow-2xl hover:scale-110 transition-transform duration-500"
-              />
+            <div className="mb-8 animate-scale-in" style={{
+            animationDelay: '0.5s'
+          }}>
+              <img src="/lovable-uploads/fb01ca19-0340-4e03-8f65-cf04865664d6.png" alt="The Art Barbershop Logo" className="w-32 h-32 mx-auto filter drop-shadow-2xl hover:scale-110 transition-transform duration-500" />
             </div>
 
             {/* Main Headline */}
@@ -168,16 +131,17 @@ const Index = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-gray-300 font-montserrat max-w-3xl mx-auto leading-relaxed mb-12 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <p className="text-xl md:text-2xl text-gray-300 font-montserrat max-w-3xl mx-auto leading-relaxed mb-12 animate-fade-in" style={{
+            animationDelay: '1s'
+          }}>
               Where Ethiopian tradition meets modern luxury. Experience the pinnacle of men's grooming.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center animate-fade-in" style={{ animationDelay: '1.5s' }}>
-              <Button 
-                onClick={handleBookNow}
-                className="group relative bg-gradient-to-r from-gold to-yellow-600 text-black hover:from-yellow-600 hover:to-gold font-montserrat font-bold text-lg px-12 py-6 rounded-full transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-gold/50 overflow-hidden"
-              >
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center animate-fade-in" style={{
+            animationDelay: '1.5s'
+          }}>
+              <Button onClick={handleBookNow} className="group relative bg-gradient-to-r from-gold to-yellow-600 text-black hover:from-yellow-600 hover:to-gold font-montserrat font-bold text-lg px-12 py-6 rounded-full transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-gold/50 overflow-hidden">
                 <span className="relative z-10 flex items-center">
                   <Calendar className="mr-3 h-6 w-6" />
                   Book Your Experience
@@ -185,11 +149,9 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
               
-              <Button 
-                variant="outline"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group border-2 border-gold text-gold hover:bg-gold hover:text-black font-montserrat font-semibold text-lg px-12 py-6 rounded-full transition-all duration-500 hover:scale-105 bg-transparent"
-              >
+              <Button variant="outline" onClick={() => document.getElementById('services')?.scrollIntoView({
+              behavior: 'smooth'
+            })} className="group border-2 border-gold text-gold hover:bg-gold hover:text-black font-montserrat font-semibold text-lg px-12 py-6 rounded-full transition-all duration-500 hover:scale-105 bg-transparent">
                 <Play className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 Explore Services
               </Button>
@@ -220,20 +182,23 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {luxuryServices.map((service, index) => (
-              <Card 
-                key={service.title} 
-                className="group relative bg-gradient-to-br from-[#173d26] to-[#173d26]/80 backdrop-blur-xl border-2 border-[#efe0bf]/30 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-[#efe0bf]/20 rounded-3xl overflow-hidden hover:border-[#efe0bf]/60"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
+            {luxuryServices.map((service, index) => <Card key={service.title} className="group relative bg-gradient-to-br from-[#173d26] to-[#173d26]/80 backdrop-blur-xl border-2 border-[#efe0bf]/30 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-[#efe0bf]/20 rounded-3xl overflow-hidden hover:border-[#efe0bf]/60" style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#efe0bf]/20 via-transparent to-[#efe0bf]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                 
                 {/* Floating particles */}
                 <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-[#efe0bf] rounded-full opacity-40 animate-pulse" style={{ animationDelay: '0s' }} />
-                  <div className="absolute top-8 right-6 w-1 h-1 bg-[#efe0bf] rounded-full opacity-60 animate-pulse" style={{ animationDelay: '1s' }} />
-                  <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-[#efe0bf] rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s' }} />
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-[#efe0bf] rounded-full opacity-40 animate-pulse" style={{
+                animationDelay: '0s'
+              }} />
+                  <div className="absolute top-8 right-6 w-1 h-1 bg-[#efe0bf] rounded-full opacity-60 animate-pulse" style={{
+                animationDelay: '1s'
+              }} />
+                  <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-[#efe0bf] rounded-full opacity-50 animate-pulse" style={{
+                animationDelay: '2s'
+              }} />
                 </div>
 
                 <CardContent className="p-8 text-center relative z-10">
@@ -258,15 +223,11 @@ const Index = () => {
                     {service.price}
                   </div>
                   
-                  <Button 
-                    onClick={handleBookNow}
-                    className="w-full bg-transparent border-2 border-[#efe0bf] text-[#efe0bf] hover:bg-[#efe0bf] hover:text-[#173d26] transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-[#efe0bf]/30"
-                  >
+                  <Button onClick={handleBookNow} className="w-full bg-transparent border-2 border-[#efe0bf] text-[#efe0bf] hover:bg-[#efe0bf] hover:text-[#173d26] transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-[#efe0bf]/30">
                     Select Service
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -285,17 +246,9 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {heroImages.map((image, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-gold/20 transition-all duration-700 hover:scale-105"
-              >
+            {heroImages.map((image, index) => <div key={index} className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-gold/20 transition-all duration-700 hover:scale-105">
                 <div className="aspect-[4/5] relative">
-                  <img 
-                    src={image} 
-                    alt={`The Art Barbershop Mastery ${index + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90 group-hover:brightness-110"
-                  />
+                  <img src={image} alt={`The Art Barbershop Mastery ${index + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90 group-hover:brightness-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-8 left-8 right-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                     <h3 className="text-white font-playfair font-bold text-2xl mb-3">
@@ -306,8 +259,7 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -326,21 +278,19 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card 
-                key={testimonial.name} 
-                className={`group relative bg-gradient-to-br ${testimonial.gradient} backdrop-blur-xl border-0 transition-all duration-700 hover:scale-105 hover:shadow-2xl rounded-3xl overflow-hidden`}
-                style={{ animationDelay: `${index * 300}ms` }}
-              >
+            {testimonials.map((testimonial, index) => <Card key={testimonial.name} className={`group relative bg-gradient-to-br ${testimonial.gradient} backdrop-blur-xl border-0 transition-all duration-700 hover:scale-105 hover:shadow-2xl rounded-3xl overflow-hidden`} style={{
+            animationDelay: `${index * 300}ms`
+          }}>
                 {/* Animated border */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gold/50 via-transparent to-gold/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" 
-                     style={{ background: 'linear-gradient(90deg, transparent, rgba(226, 212, 180, 0.3), transparent)' }} />
+                <div className="absolute inset-0 bg-gradient-to-r from-gold/50 via-transparent to-gold/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" style={{
+              background: 'linear-gradient(90deg, transparent, rgba(226, 212, 180, 0.3), transparent)'
+            }} />
                 
-                <CardContent className="p-10 relative z-10">
+                <CardContent className="p-10 relative z-10 bg-green-900">
                   <div className="flex mb-8 justify-center">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="text-gold h-7 w-7 fill-current hover:scale-110 transition-transform duration-200" style={{ animationDelay: `${i * 100}ms` }} />
-                    ))}
+                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="text-gold h-7 w-7 fill-current hover:scale-110 transition-transform duration-200" style={{
+                  animationDelay: `${i * 100}ms`
+                }} />)}
                   </div>
                   
                   <p className="text-gray-300 font-montserrat mb-8 italic leading-relaxed text-lg text-center">
@@ -356,8 +306,7 @@ const Index = () => {
                     </p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -367,85 +316,14 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-20">
-              <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gold/30 to-amber-500/30 backdrop-blur-sm rounded-full mb-8 border border-gold/40">
-                <Calendar className="h-6 w-6 text-gold mr-4" />
-                <span className="text-gold font-montserrat font-semibold text-lg">Reserve Excellence</span>
-              </div>
-              <h2 className="text-6xl md:text-7xl font-playfair font-bold text-white mb-8">
-                Your <span className="bg-gradient-to-r from-gold to-white bg-clip-text text-transparent">Experience</span> Awaits
-              </h2>
-              <p className="text-xl text-gray-300 font-montserrat max-w-2xl mx-auto">
-                Reserve your seat at Ethiopia's most distinguished barbershop
-              </p>
-            </div>
+            
 
-            <Card className="group bg-gradient-to-br from-white/95 via-gray-50/95 to-white/90 backdrop-blur-xl shadow-2xl rounded-3xl border-2 border-gold/20 hover:border-gold/40 transition-all duration-500">
-              <CardContent className="p-12">
-                <form onSubmit={handleBooking} className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="text-sm font-montserrat font-bold text-gray-800 uppercase tracking-wider">Full Name</label>
-                      <Input 
-                        placeholder="Enter your name" 
-                        className="border-2 border-gray-300 focus:border-gold focus:ring-gold transition-all duration-300 rounded-xl h-16 text-lg bg-white/80 shadow-inner"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-sm font-montserrat font-bold text-gray-800 uppercase tracking-wider">Email Address</label>
-                      <Input 
-                        type="email" 
-                        placeholder="your@email.com" 
-                        className="border-2 border-gray-300 focus:border-gold focus:ring-gold transition-all duration-300 rounded-xl h-16 text-lg bg-white/80 shadow-inner"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="text-sm font-montserrat font-bold text-gray-800 uppercase tracking-wider">Phone Number</label>
-                      <Input 
-                        type="tel" 
-                        placeholder="(555) 123-4567" 
-                        className="border-2 border-gray-300 focus:border-gold focus:ring-gold transition-all duration-300 rounded-xl h-16 text-lg bg-white/80 shadow-inner"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-sm font-montserrat font-bold text-gray-800 uppercase tracking-wider">Preferred Date</label>
-                      <Input 
-                        type="date" 
-                        className="border-2 border-gray-300 focus:border-gold focus:ring-gold transition-all duration-300 rounded-xl h-16 text-lg bg-white/80 shadow-inner"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-sm font-montserrat font-bold text-gray-800 uppercase tracking-wider">Service & Preferences</label>
-                    <Textarea 
-                      placeholder="Tell us about your preferred service and any special requests..." 
-                      rows={6}
-                      className="border-2 border-gray-300 focus:border-gold focus:ring-gold transition-all duration-300 rounded-xl text-lg resize-none bg-white/80 shadow-inner"
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-to-r from-gold to-yellow-600 text-black hover:from-yellow-600 hover:to-gold font-montserrat font-bold text-xl py-8 rounded-xl transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-gold/50 border-2 border-gold/30"
-                  >
-                    <Calendar className="mr-4 h-7 w-7" />
-                    Reserve Your Experience
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
