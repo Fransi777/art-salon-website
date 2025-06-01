@@ -8,7 +8,25 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { MapPin, Check, Phone, Clock, Heart, Shield, Award } from 'lucide-react';
+import { 
+  MapPin, 
+  Check, 
+  Phone, 
+  Clock, 
+  Heart, 
+  Shield, 
+  Award, 
+  Scissors,
+  Crown,
+  Sparkles,
+  Trophy,
+  Star,
+  Calendar,
+  ArrowRight,
+  Users,
+  Zap,
+  Gift
+} from 'lucide-react';
 
 const Services = () => {
   const { toast } = useToast();
@@ -21,62 +39,90 @@ const Services = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Service packages with pricing in Ethiopian Birr
+  // Premium barbershop services with modern design
   const servicePackages = [
     {
-      id: 'basic',
-      name: 'Basic Health Screening',
+      id: 'signature',
+      name: 'Signature Cut & Style',
+      price: 85,
+      originalPrice: 100,
+      icon: Scissors,
+      popular: false,
+      image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&q=80",
+      features: [
+        'Personal consultation',
+        'Precision cutting technique',
+        'Professional styling',
+        'Premium hair products',
+        'Finishing touch'
+      ],
+      gradient: 'from-blue-500/20 via-indigo-400/30 to-purple-500/20',
+      accent: 'blue-500'
+    },
+    {
+      id: 'royal',
+      name: 'Royal Grooming Package',
+      price: 150,
+      originalPrice: 180,
+      icon: Crown,
+      popular: true,
+      image: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&q=80",
+      features: [
+        'Signature cut & style',
+        'Traditional hot towel shave',
+        'Beard trim & shape',
+        'Scalp massage',
+        'Premium aftercare',
+        'Complimentary beverage'
+      ],
+      gradient: 'from-gold/20 via-amber-400/30 to-yellow-500/20',
+      accent: 'amber-500'
+    },
+    {
+      id: 'beard',
+      name: 'Beard Artistry',
+      price: 65,
+      originalPrice: 80,
+      icon: Sparkles,
+      popular: false,
+      image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500&q=80",
+      features: [
+        'Precision beard shaping',
+        'Line-up & detailing',
+        'Beard oil treatment',
+        'Styling consultation',
+        'Maintenance tips'
+      ],
+      gradient: 'from-emerald-500/20 via-teal-400/30 to-cyan-500/20',
+      accent: 'emerald-500'
+    },
+    {
+      id: 'vip',
+      name: 'VIP Elite Experience',
       price: 250,
       originalPrice: 300,
-      icon: Heart,
-      features: [
-        'Complete Blood Count (CBC)',
-        'Blood Pressure Check',
-        'Basic Consultation',
-        'Health Report',
-        'Follow-up Call'
-      ],
+      icon: Trophy,
       popular: false,
-      gradient: 'from-emerald-50 to-teal-50',
-      accent: 'emerald'
-    },
-    {
-      id: 'premium',
-      name: 'Comprehensive Wellness',
-      price: 450,
-      originalPrice: 550,
-      icon: Shield,
+      image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&q=80",
       features: [
-        'Full Blood Panel Analysis',
-        'Cardiovascular Assessment',
-        'Nutritional Consultation',
-        'Lifestyle Recommendations',
-        'Digital Health Tracking',
-        '3-Month Follow-up'
+        'Private VIP suite',
+        'Complete grooming package',
+        'Premium product selection',
+        'Extended relaxation time',
+        'Personal grooming consultation',
+        'Exclusive aftercare kit',
+        'Priority booking privileges'
       ],
-      popular: true,
-      gradient: 'from-blue-50 to-indigo-50',
-      accent: 'blue'
-    },
-    {
-      id: 'executive',
-      name: 'Executive Health Package',
-      price: 600,
-      originalPrice: 750,
-      icon: Award,
-      features: [
-        'Advanced Diagnostic Screening',
-        'Specialist Consultations',
-        'Personalized Health Plan',
-        'Priority Booking',
-        'Annual Health Monitoring',
-        'Telemedicine Access',
-        'VIP Service'
-      ],
-      popular: false,
-      gradient: 'from-purple-50 to-pink-50',
-      accent: 'purple'
+      gradient: 'from-purple-500/20 via-violet-400/30 to-pink-500/20',
+      accent: 'purple-500'
     }
+  ];
+
+  const additionalServices = [
+    { name: 'Hair Wash & Blow Dry', price: 25, icon: Sparkles },
+    { name: 'Eyebrow Trimming', price: 15, icon: Zap },
+    { name: 'Hot Towel Treatment', price: 20, icon: Gift },
+    { name: 'Scalp Treatment', price: 35, icon: Heart }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -120,119 +166,218 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-emerald-100 rounded-full mb-8 text-emerald-700 font-medium">
-            <Heart className="w-5 h-5 mr-2" />
-            Professional Health Services
+      {/* Hero Section with Advanced Grid */}
+      <section className="pt-20 pb-16 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-purple-500/5"></div>
+        
+        {/* Hero Grid Layout */}
+        <div className="max-w-7xl mx-auto grid grid-cols-12 grid-rows-4 gap-6 min-h-[80vh]">
+          
+          {/* Main Headline */}
+          <div className="col-span-12 md:col-span-8 row-span-2 flex flex-col justify-center">
+            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gold/20 to-amber-500/20 backdrop-blur-sm rounded-full mb-6 text-gold font-medium w-fit">
+              <Scissors className="w-5 h-5 mr-2" />
+              Premium Barbershop Services
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold leading-tight">
+              Crafted
+              <span className="block bg-gradient-to-r from-gold via-amber-400 to-gold bg-clip-text text-transparent">
+                Excellence
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 font-montserrat mt-6 leading-relaxed max-w-2xl">
+              Experience the artistry of precision grooming with our signature services, tailored for the modern gentleman.
+            </p>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6">
-            Your Health,
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Our Priority</span>
-          </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive diagnostic services with modern technology and expert care, 
-            designed to keep you healthy and informed about your wellbeing.
-          </p>
+
+          {/* Feature Cards */}
+          <div className="col-span-12 md:col-span-4 row-span-2 grid grid-cols-1 gap-4">
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-6 hover:scale-105 transition-all duration-500">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gold rounded-xl flex items-center justify-center">
+                  <Users className="w-6 h-6 text-black" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-white">5000+</div>
+                  <div className="text-gray-300 text-sm">Happy Clients</div>
+                </div>
+              </div>
+            </Card>
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-6 hover:scale-105 transition-all duration-500">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-white">15+</div>
+                  <div className="text-gray-300 text-sm">Years Experience</div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* CTA Section */}
+          <div className="col-span-12 row-span-1 flex flex-col md:flex-row gap-4 items-center justify-start">
+            <Button className="bg-gradient-to-r from-gold to-yellow-600 text-black hover:from-yellow-600 hover:to-gold font-montserrat font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 hover:scale-105">
+              <Calendar className="mr-2 h-5 w-5" />
+              Book Appointment
+            </Button>
+            <Button variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-black font-montserrat font-semibold text-lg px-8 py-4 rounded-full transition-all duration-300">
+              <Phone className="mr-2 h-5 w-5" />
+              Call Now
+            </Button>
+          </div>
+
+          {/* Statistics */}
+          <div className="col-span-12 row-span-1 flex justify-center items-end">
+            <div className="grid grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-gold">98%</div>
+                <div className="text-gray-400 text-sm">Satisfaction</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-gold">24/7</div>
+                <div className="text-gray-400 text-sm">Support</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-gold">50+</div>
+                <div className="text-gray-400 text-sm">Services</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Main Grid Layout */}
+      {/* Main Services Grid */}
       <div className="max-w-7xl mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
           
-          {/* Service Packages - Spans 2 columns on large screens */}
-          <div className="lg:col-span-2">
-            <div className="mb-12">
-              <h2 className="text-4xl font-bold text-slate-800 mb-4 text-center lg:text-left">
-                Health Packages
+          {/* Services Grid - Spans 3 columns */}
+          <div className="lg:col-span-3">
+            <div className="mb-12 text-center lg:text-left">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-4">
+                Signature Services
               </h2>
-              <p className="text-slate-600 text-lg text-center lg:text-left">
-                Choose the package that best fits your health monitoring needs
+              <p className="text-gray-300 text-lg">
+                Choose from our curated selection of premium grooming experiences
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {servicePackages.map((pkg) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              {servicePackages.map((pkg, index) => {
                 const IconComponent = pkg.icon;
                 return (
-                  <Card key={pkg.id} className={`relative overflow-hidden bg-gradient-to-br ${pkg.gradient} border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 group ${pkg.popular ? 'ring-2 ring-blue-200' : ''}`}>
+                  <Card 
+                    key={pkg.id} 
+                    className={`group relative overflow-hidden bg-gradient-to-br ${pkg.gradient} backdrop-blur-xl border-2 border-white/20 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-gold/20 rounded-3xl ${pkg.popular ? 'ring-2 ring-gold/50' : ''}`}
+                    style={{ animationDelay: `${index * 200}ms` }}
+                  >
                     {pkg.popular && (
-                      <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
+                      <div className="absolute top-4 right-4 bg-gradient-to-r from-gold to-amber-500 text-black text-xs px-3 py-1 rounded-full font-semibold z-10">
                         Most Popular
                       </div>
                     )}
                     
-                    <CardHeader className="text-center pb-4">
-                      <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-${pkg.accent}-500 to-${pkg.accent}-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="w-8 h-8 text-white" />
+                    {/* Service Image */}
+                    <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                      <img 
+                        src={pkg.image} 
+                        alt={pkg.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className={`w-12 h-12 bg-gradient-to-br from-${pkg.accent}/80 to-${pkg.accent} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="w-6 h-6 text-white" />
+                        </div>
+                        <div className="text-right">
+                          <div className="flex items-center gap-2">
+                            <span className="text-2xl font-bold text-white">${pkg.price}</span>
+                            {pkg.originalPrice && (
+                              <span className="text-sm text-gray-400 line-through">${pkg.originalPrice}</span>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                      <CardTitle className="text-xl font-bold text-slate-800">{pkg.name}</CardTitle>
-                      <div className="flex items-center justify-center gap-2 mt-2">
-                        <span className="text-3xl font-bold text-slate-800">{pkg.price}</span>
-                        <span className="text-lg text-slate-600">ETB</span>
-                        {pkg.originalPrice && (
-                          <span className="text-sm text-slate-400 line-through ml-2">{pkg.originalPrice} ETB</span>
-                        )}
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="pt-0">
-                      <ul className="space-y-3 mb-6">
-                        {pkg.features.map((feature, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <Check className={`w-5 h-5 text-${pkg.accent}-500 mt-0.5 flex-shrink-0`} />
-                            <span className="text-slate-600">{feature}</span>
+                      
+                      <h3 className="text-xl font-playfair font-bold text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                        {pkg.name}
+                      </h3>
+                      
+                      <ul className="space-y-2 mb-6">
+                        {pkg.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">{feature}</span>
                           </li>
                         ))}
                       </ul>
                       
                       <Button 
-                        className={`w-full bg-gradient-to-r from-${pkg.accent}-500 to-${pkg.accent}-600 hover:from-${pkg.accent}-600 hover:to-${pkg.accent}-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
+                        className="w-full bg-gradient-to-r from-gold to-yellow-600 text-black hover:from-yellow-600 hover:to-gold font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                         onClick={() => setFormData({...formData, service: pkg.name})}
                       >
-                        Select Package
+                        Select Service
+                        <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </CardContent>
                   </Card>
                 );
               })}
             </div>
+
+            {/* Additional Services */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-playfair font-bold text-white mb-6">Additional Services</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {additionalServices.map((service, index) => (
+                  <Card key={service.name} className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-4 hover:scale-105 transition-all duration-300">
+                    <CardContent className="p-0 text-center">
+                      <service.icon className="w-8 h-8 text-gold mx-auto mb-3" />
+                      <h4 className="text-white font-semibold text-sm mb-2">{service.name}</h4>
+                      <div className="text-gold font-bold">${service.price}</div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Booking Form Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl sticky top-8">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-slate-800 text-center">
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl shadow-xl sticky top-8 rounded-3xl">
+              <CardHeader className="text-center pb-4">
+                <CardTitle className="text-2xl font-playfair font-bold text-white">
                   Book Your Service
                 </CardTitle>
-                <p className="text-slate-600 text-center">
-                  Get in touch with our healthcare team
+                <p className="text-gray-300">
+                  Reserve your spot today
                 </p>
               </CardHeader>
               
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="name" className="text-slate-700 font-medium">Full Name</Label>
+                    <Label htmlFor="name" className="text-white font-medium">Full Name</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
-                      placeholder="Enter your full name"
+                      className="mt-1 bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-gold focus:ring-gold rounded-xl"
+                      placeholder="Enter your name"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="text-slate-700 font-medium">Email Address</Label>
+                    <Label htmlFor="email" className="text-white font-medium">Email</Label>
                     <Input
                       id="email"
                       name="email"
@@ -240,13 +385,13 @@ const Services = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
-                      placeholder="your.email@example.com"
+                      className="mt-1 bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-gold focus:ring-gold rounded-xl"
+                      placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="phone" className="text-slate-700 font-medium">Phone Number</Label>
+                    <Label htmlFor="phone" className="text-white font-medium">Phone</Label>
                     <Input
                       id="phone"
                       name="phone"
@@ -254,47 +399,47 @@ const Services = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
-                      placeholder="+251 9XX XXX XXX"
+                      className="mt-1 bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-gold focus:ring-gold rounded-xl"
+                      placeholder="+1 (555) 123-4567"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="service" className="text-slate-700 font-medium">Preferred Service</Label>
+                    <Label htmlFor="service" className="text-white font-medium">Service</Label>
                     <select
                       id="service"
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
                       required
-                      className="w-full mt-1 px-3 py-2 border border-slate-200 rounded-md focus:border-emerald-500 focus:ring-emerald-500 bg-white"
+                      className="w-full mt-1 px-3 py-2 bg-white/10 border border-white/20 text-white rounded-xl focus:border-gold focus:ring-gold"
                     >
-                      <option value="">Select a service</option>
+                      <option value="" className="bg-slate-800">Select a service</option>
                       {servicePackages.map(pkg => (
-                        <option key={pkg.id} value={pkg.name}>{pkg.name}</option>
+                        <option key={pkg.id} value={pkg.name} className="bg-slate-800">{pkg.name}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <Label htmlFor="message" className="text-slate-700 font-medium">Additional Message</Label>
+                    <Label htmlFor="message" className="text-white font-medium">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      rows={4}
-                      className="mt-1 border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
-                      placeholder="Tell us about your specific needs or questions..."
+                      rows={3}
+                      className="mt-1 bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-gold focus:ring-gold rounded-xl resize-none"
+                      placeholder="Any special requests..."
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-gold to-yellow-600 text-black hover:from-yellow-600 hover:to-gold font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? 'Sending...' : 'Book Now'}
                   </Button>
                 </form>
               </CardContent>
@@ -302,121 +447,111 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Map and Contact Info Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Static Map Display */}
+        {/* Location & Contact Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Interactive Map */}
           <div className="order-2 lg:order-1">
-            <Card className="bg-white border-0 shadow-xl overflow-hidden h-96">
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl shadow-xl overflow-hidden h-96 rounded-3xl">
               <CardHeader className="pb-0">
-                <CardTitle className="flex items-center gap-2 text-slate-800">
-                  <MapPin className="w-5 h-5 text-emerald-500" />
+                <CardTitle className="flex items-center gap-2 text-white">
+                  <MapPin className="w-5 h-5 text-gold" />
                   Find Our Location
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
-                <div className="w-full h-80 rounded-b-lg bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center relative overflow-hidden">
-                  {/* Static Map Background */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-blue-100"></div>
-                  </div>
-                  
-                  {/* Location Information */}
-                  <div className="text-center p-8 relative z-10">
-                    <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg mx-auto mb-4">
-                      <MapPin className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-slate-800 mb-2">Health Diagnostic Center</h3>
-                    <p className="text-slate-600 mb-2">Bole, Addis Ababa, Ethiopia</p>
-                    <p className="text-sm text-slate-500 mb-4">Near Millennium Hall</p>
-                    <div className="text-xs text-slate-400">
-                      <p>Coordinates: 9.011898626972641, 38.85263916611005</p>
-                    </div>
-                  </div>
+                <div className="w-full h-80 rounded-b-3xl">
+                  <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=38.8476%2C9.0069%2C38.8576%2C9.0169&layer=mapnik&marker=9.011898626972641%2C38.85263916611005"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    title="The Art Barbershop Location"
+                    className="rounded-b-3xl"
+                  />
                 </div>
               </CardContent>
             </Card>
           </div>
 
           {/* Contact Information */}
-          <div className="order-1 lg:order-2">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                  Visit Our Facility
-                </h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  Located in the heart of Addis Ababa, our modern diagnostic center 
-                  offers convenient access to comprehensive health services.
-                </p>
-              </div>
+          <div className="order-1 lg:order-2 space-y-6">
+            <div>
+              <h3 className="text-3xl font-playfair font-bold text-white mb-4">
+                Visit Our Studio
+              </h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Located in the heart of Addis Ababa, our modern studio offers a premium environment for the ultimate grooming experience.
+              </p>
+            </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-emerald-600" />
+            <div className="space-y-4">
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gold rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-black" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-800">Address</h4>
-                    <p className="text-slate-600">Bole, Addis Ababa, Ethiopia</p>
-                    <p className="text-slate-600">Near Millennium Hall</p>
+                    <h4 className="font-semibold text-white mb-1">Address</h4>
+                    <p className="text-gray-300">Bole, Addis Ababa, Ethiopia</p>
+                    <p className="text-gray-300">Near Millennium Hall</p>
                   </div>
                 </div>
+              </Card>
 
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-blue-600" />
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-800">Phone</h4>
-                    <p className="text-slate-600">+251 11 123 4567</p>
-                    <p className="text-slate-600">+251 9XX XXX XXX</p>
+                    <h4 className="font-semibold text-white mb-1">Phone</h4>
+                    <p className="text-gray-300">+251 11 123 4567</p>
+                    <p className="text-gray-300">+251 9XX XXX XXX</p>
                   </div>
                 </div>
+              </Card>
 
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-purple-600" />
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-800">Hours</h4>
-                    <p className="text-slate-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p className="text-slate-600">Saturday: 9:00 AM - 4:00 PM</p>
+                    <h4 className="font-semibold text-white mb-1">Hours</h4>
+                    <p className="text-gray-300">Monday - Friday: 9:00 AM - 8:00 PM</p>
+                    <p className="text-gray-300">Saturday - Sunday: 8:00 AM - 6:00 PM</p>
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           </div>
         </div>
 
-        {/* Features Section */}
+        {/* Why Choose Us Section */}
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-slate-800 mb-6">
-            Why Choose Our Services?
+          <h3 className="text-4xl font-playfair font-bold text-white mb-12">
+            Why Choose <span className="text-gold">The Art</span>?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-emerald-600" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-2">Certified Professionals</h4>
-              <p className="text-slate-600">Licensed healthcare providers with years of experience</p>
-            </div>
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500">
+              <Shield className="w-16 h-16 text-gold mx-auto mb-6" />
+              <h4 className="text-xl font-playfair font-bold text-white mb-4">Master Craftsmen</h4>
+              <p className="text-gray-300">Skilled professionals with years of experience in precision grooming</p>
+            </Card>
 
-            <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-blue-600" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-2">Modern Equipment</h4>
-              <p className="text-slate-600">State-of-the-art diagnostic technology for accurate results</p>
-            </div>
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500">
+              <Heart className="w-16 h-16 text-gold mx-auto mb-6" />
+              <h4 className="text-xl font-playfair font-bold text-white mb-4">Premium Products</h4>
+              <p className="text-gray-300">Only the finest grooming products and tools for exceptional results</p>
+            </Card>
 
-            <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-purple-600" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-2">Quality Care</h4>
-              <p className="text-slate-600">Personalized attention and comprehensive health solutions</p>
-            </div>
+            <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20 backdrop-blur-xl p-8 rounded-3xl hover:scale-105 transition-all duration-500">
+              <Award className="w-16 h-16 text-gold mx-auto mb-6" />
+              <h4 className="text-xl font-playfair font-bold text-white mb-4">Luxury Experience</h4>
+              <p className="text-gray-300">Personalized service in a sophisticated, comfortable environment</p>
+            </Card>
           </div>
         </div>
       </div>
