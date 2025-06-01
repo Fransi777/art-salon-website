@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,14 +8,10 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { MapPin, Star, Check, Phone, Mail, Clock, Heart, Shield, Award } from 'lucide-react';
+import { MapPin, Check, Phone, Clock, Heart, Shield, Award } from 'lucide-react';
 
 const Services = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<any>(null);
   const { toast } = useToast();
-  const [mapLoaded, setMapLoaded] = useState(false);
-  const [mapError, setMapError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,59 +78,6 @@ const Services = () => {
       accent: 'purple'
     }
   ];
-
-  // Initialize map with better error handling
-  useEffect(() => {
-    const initMap = async () => {
-      if (!mapRef.current || mapInstance.current) return;
-
-      try {
-        console.log('Loading map...');
-        // Dynamic import with better error handling
-        const { default: L } = await import('leaflet');
-        await import('leaflet/dist/leaflet.css');
-
-        console.log('Leaflet loaded successfully');
-
-        // Initialize map
-        mapInstance.current = L.map(mapRef.current).setView([9.011898626972641, 38.85263916611005], 15);
-
-        // Add tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors'
-        }).addTo(mapInstance.current);
-
-        // Custom marker
-        const customIcon = L.divIcon({
-          html: '<div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg></div>',
-          className: 'custom-map-marker',
-          iconSize: [32, 32],
-          iconAnchor: [16, 32]
-        });
-
-        // Add marker
-        L.marker([9.011898626972641, 38.85263916611005], { icon: customIcon })
-          .addTo(mapInstance.current)
-          .bindPopup('<div class="text-center p-2"><strong>Health Diagnostic Center</strong><br/>Your trusted healthcare partner</div>');
-
-        setMapLoaded(true);
-        console.log('Map initialized successfully');
-
-      } catch (error) {
-        console.error('Error loading map:', error);
-        setMapError(true);
-      }
-    };
-
-    initMap();
-
-    return () => {
-      if (mapInstance.current) {
-        mapInstance.current.remove();
-        mapInstance.current = null;
-      }
-    };
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -361,7 +304,7 @@ const Services = () => {
 
         {/* Map and Contact Info Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Interactive Map */}
+          {/* Static Map Display */}
           <div className="order-2 lg:order-1">
             <Card className="bg-white border-0 shadow-xl overflow-hidden h-96">
               <CardHeader className="pb-0">
@@ -371,18 +314,25 @@ const Services = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
-                {mapError ? (
-                  <div className="w-full h-80 rounded-b-lg bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <MapPin className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-slate-800 mb-2">Health Diagnostic Center</h3>
-                      <p className="text-slate-600 mb-2">Bole, Addis Ababa, Ethiopia</p>
-                      <p className="text-sm text-slate-500">Near Millennium Hall</p>
+                <div className="w-full h-80 rounded-b-lg bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center relative overflow-hidden">
+                  {/* Static Map Background */}
+                  <div className="absolute inset-0 opacity-20">
+                    <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-blue-100"></div>
+                  </div>
+                  
+                  {/* Location Information */}
+                  <div className="text-center p-8 relative z-10">
+                    <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg mx-auto mb-4">
+                      <MapPin className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-slate-800 mb-2">Health Diagnostic Center</h3>
+                    <p className="text-slate-600 mb-2">Bole, Addis Ababa, Ethiopia</p>
+                    <p className="text-sm text-slate-500 mb-4">Near Millennium Hall</p>
+                    <div className="text-xs text-slate-400">
+                      <p>Coordinates: 9.011898626972641, 38.85263916611005</p>
                     </div>
                   </div>
-                ) : (
-                  <div ref={mapRef} className="w-full h-80 rounded-b-lg" />
-                )}
+                </div>
               </CardContent>
             </Card>
           </div>
