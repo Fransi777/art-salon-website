@@ -10,13 +10,12 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MapPin, Star, Check, Phone, Mail, Clock, Heart, Shield, Award } from 'lucide-react';
 
-// Dynamic import for Leaflet to avoid SSR issues
-let L: any = null;
-
 const Services = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const map = useRef<any>(null);
+  const mapInstance = useRef<any>(null);
   const { toast } = useToast();
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,26 +83,28 @@ const Services = () => {
     }
   ];
 
-  // Initialize map with dynamic import
+  // Initialize map with better error handling
   useEffect(() => {
     const initMap = async () => {
-      if (!mapRef.current || map.current) return;
+      if (!mapRef.current || mapInstance.current) return;
 
       try {
-        // Dynamically import Leaflet
-        const leaflet = await import('leaflet');
+        console.log('Loading map...');
+        // Dynamic import with better error handling
+        const { default: L } = await import('leaflet');
         await import('leaflet/dist/leaflet.css');
-        L = leaflet.default;
 
-        // Initialize Leaflet map
-        map.current = L.map(mapRef.current).setView([9.011898626972641, 38.85263916611005], 15);
+        console.log('Leaflet loaded successfully');
+
+        // Initialize map
+        mapInstance.current = L.map(mapRef.current).setView([9.011898626972641, 38.85263916611005], 15);
 
         // Add tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '© OpenStreetMap contributors'
-        }).addTo(map.current);
+        }).addTo(mapInstance.current);
 
-        // Custom marker icon
+        // Custom marker
         const customIcon = L.divIcon({
           html: '<div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg></div>',
           className: 'custom-map-marker',
@@ -113,20 +114,24 @@ const Services = () => {
 
         // Add marker
         L.marker([9.011898626972641, 38.85263916611005], { icon: customIcon })
-          .addTo(map.current)
+          .addTo(mapInstance.current)
           .bindPopup('<div class="text-center p-2"><strong>Health Diagnostic Center</strong><br/>Your trusted healthcare partner</div>');
+
+        setMapLoaded(true);
+        console.log('Map initialized successfully');
 
       } catch (error) {
         console.error('Error loading map:', error);
+        setMapError(true);
       }
     };
 
     initMap();
 
     return () => {
-      if (map.current) {
-        map.current.remove();
-        map.current = null;
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
       }
     };
   }, []);
@@ -366,7 +371,18 @@ const Services = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
-                <div ref={mapRef} className="w-full h-80 rounded-b-lg" />
+                {mapError ? (
+                  <div className="w-full h-80 rounded-b-lg bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <MapPin className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
+                      <h3 className="text-xl font-semibold text-slate-800 mb-2">Health Diagnostic Center</h3>
+                      <p className="text-slate-600 mb-2">Bole, Addis Ababa, Ethiopia</p>
+                      <p className="text-sm text-slate-500">Near Millennium Hall</p>
+                    </div>
+                  </div>
+                ) : (
+                  <div ref={mapRef} className="w-full h-80 rounded-b-lg" />
+                )}
               </CardContent>
             </Card>
           </div>
