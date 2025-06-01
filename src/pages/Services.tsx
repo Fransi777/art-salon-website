@@ -9,12 +9,13 @@ import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MapPin, Star, Check, Phone, Mail, Clock, Heart, Shield, Award } from 'lucide-react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+
+// Dynamic import for Leaflet to avoid SSR issues
+let L: any = null;
 
 const Services = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const map = useRef<L.Map | null>(null);
+  const map = useRef<any>(null);
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -83,30 +84,44 @@ const Services = () => {
     }
   ];
 
-  // Initialize map
+  // Initialize map with dynamic import
   useEffect(() => {
-    if (!mapRef.current || map.current) return;
+    const initMap = async () => {
+      if (!mapRef.current || map.current) return;
 
-    // Initialize Leaflet map
-    map.current = L.map(mapRef.current).setView([9.011898626972641, 38.85263916611005], 15);
+      try {
+        // Dynamically import Leaflet
+        const leaflet = await import('leaflet');
+        await import('leaflet/dist/leaflet.css');
+        L = leaflet.default;
 
-    // Add tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map.current);
+        // Initialize Leaflet map
+        map.current = L.map(mapRef.current).setView([9.011898626972641, 38.85263916611005], 15);
 
-    // Custom marker icon
-    const customIcon = L.divIcon({
-      html: '<div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg></div>',
-      className: 'custom-map-marker',
-      iconSize: [32, 32],
-      iconAnchor: [16, 32]
-    });
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map.current);
 
-    // Add marker
-    L.marker([9.011898626972641, 38.85263916611005], { icon: customIcon })
-      .addTo(map.current)
-      .bindPopup('<div class="text-center p-2"><strong>Health Diagnostic Center</strong><br/>Your trusted healthcare partner</div>');
+        // Custom marker icon
+        const customIcon = L.divIcon({
+          html: '<div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg></div>',
+          className: 'custom-map-marker',
+          iconSize: [32, 32],
+          iconAnchor: [16, 32]
+        });
+
+        // Add marker
+        L.marker([9.011898626972641, 38.85263916611005], { icon: customIcon })
+          .addTo(map.current)
+          .bindPopup('<div class="text-center p-2"><strong>Health Diagnostic Center</strong><br/>Your trusted healthcare partner</div>');
+
+      } catch (error) {
+        console.error('Error loading map:', error);
+      }
+    };
+
+    initMap();
 
     return () => {
       if (map.current) {
