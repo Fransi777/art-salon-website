@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -166,7 +167,8 @@ const Services = () => {
                 <div className="text-3xl font-bold text-emerald-600">10+</div>
                 <div className="text-gray-600 text-sm">Years Experience</div>
               </div>
-              <div className="text-3xl font-bold text-emerald-600">98%</div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-emerald-600">98%</div>
                 <div className="text-gray-600 text-sm">Satisfaction</div>
               </div>
               <div className="text-center">
