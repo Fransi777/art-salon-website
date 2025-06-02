@@ -147,7 +147,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
-              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 shadow-xl">
+              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#937800] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 shadow-xl">
                 <Calendar className="mr-3 h-6 w-6" />
                 Book Your Experience
               </Button>
