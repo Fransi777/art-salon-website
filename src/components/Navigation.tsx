@@ -53,7 +53,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden flex flex-col space-y-1 group">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden flex flex-col space-y-1 group text-[#173d26]">
             <span className={`w-6 h-0.5 bg-sage transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
             <span className={`w-6 h-0.5 bg-sage transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
             <span className={`w-6 h-0.5 bg-sage transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
