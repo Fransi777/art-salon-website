@@ -147,7 +147,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
-              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 shadow-xl\n">
+              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 shadow-xl">
                 <Calendar className="mr-3 h-6 w-6" />
                 Book Your Experience
               </Button>
@@ -175,7 +175,7 @@ const Index = () => {
             {stats.map((stat, index) => <Card key={stat.label} className="bg-white shadow-xl text-center p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-2xl border border-[#173d26]/10">
                 <CardContent className="p-0">
                   <stat.icon className="h-12 w-12 text-[#173d26] mx-auto mb-4" />
-                  <div className="text-3xl md:text-4xl font-bold text-[#173d26] mb-2 bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent">{stat.number}</div>
+                  <div className="text-4xl font-montserrat font-bold text-[#173d26] mb-2">{stat.number}</div>
                   <div className="text-[#173d26]/70 font-montserrat">{stat.label}</div>
                 </CardContent>
               </Card>)}
