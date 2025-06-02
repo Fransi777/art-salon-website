@@ -1,10 +1,8 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Users, Star, Target, Heart, Gem } from 'lucide-react';
-
 const About = () => {
   const team = [{
     name: "Marcus 'The Artist' Johnson",
@@ -25,7 +23,6 @@ const About = () => {
     experience: "8+ years",
     specialty: "Modern Styles & Line-ups"
   }];
-
   const stats = [{
     number: "+20",
     label: "Years Of Experience",
@@ -39,9 +36,7 @@ const About = () => {
     label: "Happy Customer",
     icon: Star
   }];
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section with Owner Profile */}
@@ -71,11 +66,7 @@ const About = () => {
                 {/* Circular Profile Image */}
                 <div className="relative">
                   <div className="w-80 h-80 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-[#173d26]/10">
-                    <img 
-                      src="/lovable-uploads/9265fdd2-8387-4d0f-ac9b-f0e40947c59a.png" 
-                      alt="Artist Henok Berihun - Master Barber & Founder" 
-                      className="w-full h-full object-cover object-center"
-                    />
+                    <img src="/lovable-uploads/9265fdd2-8387-4d0f-ac9b-f0e40947c59a.png" alt="Artist Henok Berihun - Master Barber & Founder" className="w-full h-full object-cover object-center" />
                   </div>
                   
                   {/* Subtle glow effect */}
@@ -92,11 +83,11 @@ const About = () => {
         
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #efe0bf 1px, transparent 1px),
+          <div style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, #efe0bf 1px, transparent 1px),
                              radial-gradient(circle at 75% 75%, #f0c515 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}></div>
+          backgroundSize: '50px 50px'
+        }} className="absolute inset-0 bg-[#937800]"></div>
         </div>
       </section>
 
@@ -171,16 +162,11 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <Card key={member.name} className="group bg-white border-[#173d26]/10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl">
+            {team.map((member, index) => <Card key={member.name} className="group bg-white border-[#173d26]/10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl">
                 <CardContent className="p-8">
                   <div className="relative mb-6">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#efe0bf]/20 to-[#f0c515]/20 rounded-xl transform rotate-2 group-hover:rotate-0 transition-transform duration-300"></div>
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="relative w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" 
-                    />
+                    <img src={member.image} alt={member.name} className="relative w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-2xl font-montserrat font-bold text-[#173d26] mb-2 group-hover:text-[#173d26] transition-colors duration-300">
                     {member.name}
@@ -193,15 +179,12 @@ const About = () => {
                     <p><span className="text-[#173d26] font-semibold">Specialty:</span> {member.specialty}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
