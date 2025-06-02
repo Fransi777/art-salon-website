@@ -154,7 +154,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-[#173d26] mb-6">
-              Meet the <span className="font-playfair italic bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent">Artists</span>
+              Meet the <span className="font-playfair italic bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-[#937800]">Artists</span>
             </h2>
             <p className="text-xl text-[#173d26]/70 font-montserrat max-w-2xl mx-auto">
               Our master barbers bring decades of combined experience and unmatched skill to every service
