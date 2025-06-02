@@ -134,20 +134,20 @@ const Services = () => {
       <section className="pt-20 pb-16 bg-gradient-to-br from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-emerald-100 rounded-full mb-8 text-emerald-700 font-medium">
+            <div className="inline-flex items-center px-6 py-3 bg-[#173d26]/10 rounded-full mb-8 text-[#173d26] font-medium">
               <Scissors className="w-5 h-5 mr-2" />
               Premium Barbershop Services
             </div>
             <h1 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 mb-6">
               Crafted
-              <span className="block text-emerald-600 italic">Excellence</span>
+              <span className="block text-[#173d26] italic">Excellence</span>
             </h1>
             <p className="text-xl text-gray-600 font-montserrat max-w-2xl mx-auto mb-8">
               Experience the artistry of precision grooming with our signature services, tailored for the modern Ethiopian gentleman.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button className="bg-emerald-600 text-white hover:bg-emerald-700 font-montserrat font-bold text-lg px-8 py-4 rounded-xl">
+              <Button className="bg-[#173d26] text-white hover:bg-[#173d26]/90 font-montserrat font-bold text-lg px-8 py-4 rounded-xl">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Appointment
               </Button>
@@ -160,19 +160,19 @@ const Services = () => {
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">2000+</div>
+                <div className="text-3xl font-bold text-[#173d26]">2000+</div>
                 <div className="text-gray-600 text-sm">Happy Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">10+</div>
+                <div className="text-3xl font-bold text-[#173d26]">10+</div>
                 <div className="text-gray-600 text-sm">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">98%</div>
+                <div className="text-3xl font-bold text-[#173d26]">98%</div>
                 <div className="text-gray-600 text-sm">Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">24/7</div>
+                <div className="text-3xl font-bold text-[#173d26]">24/7</div>
                 <div className="text-gray-600 text-sm">Support</div>
               </div>
             </div>
@@ -199,10 +199,10 @@ const Services = () => {
                 return (
                   <Card 
                     key={pkg.id} 
-                    className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-emerald-500' : ''}`}
+                    className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-[#173d26]' : ''}`}
                   >
                     {pkg.popular && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white text-xs px-4 py-1 rounded-full font-semibold z-10">
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#173d26] text-white text-xs px-4 py-1 rounded-full font-semibold z-10">
                         Most Popular
                       </div>
                     )}
@@ -219,7 +219,7 @@ const Services = () => {
                     
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                        <div className="w-12 h-12 bg-[#173d26] rounded-xl flex items-center justify-center shadow-lg">
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
                         <div className="text-right">
@@ -239,13 +239,13 @@ const Services = () => {
                       <ul className="space-y-2 mb-6">
                         {pkg.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <Check className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                            <Check className="w-4 h-4 text-[#173d26] mt-0.5 flex-shrink-0" />
                             <span className="text-gray-600 text-sm">{feature}</span>
                           </li>
                         ))}
                       </ul>
                       
-                      <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-semibold py-3 rounded-xl">
+                      <Button className="w-full bg-[#173d26] text-white hover:bg-[#173d26]/90 font-semibold py-3 rounded-xl">
                         Select Service
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -262,9 +262,9 @@ const Services = () => {
                 {additionalServices.map((service) => (
                   <Card key={service.name} className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center p-4">
                     <CardContent className="p-0">
-                      <service.icon className="w-8 h-8 text-emerald-600 mx-auto mb-3" />
+                      <service.icon className="w-8 h-8 text-[#173d26] mx-auto mb-3" />
                       <h4 className="text-gray-900 font-semibold text-sm mb-2">{service.name}</h4>
-                      <div className="text-emerald-600 font-bold">{service.price} Birr</div>
+                      <div className="text-[#173d26] font-bold">{service.price} Birr</div>
                     </CardContent>
                   </Card>
                 ))}
@@ -280,7 +280,7 @@ const Services = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                Visit Our <span className="text-emerald-600 italic">Studio</span>
+                Visit Our <span className="text-[#173d26] italic">Studio</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Located at Summit Feyel Bet, Addis Ababa
@@ -315,7 +315,7 @@ const Services = () => {
 
                 <Card className="border-0 shadow-md p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#173d26] rounded-xl flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -360,23 +360,23 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-playfair font-bold text-gray-900 mb-12">
-              Why Choose <span className="text-emerald-600 italic">The Art</span>?
+              Why Choose <span className="text-[#173d26] italic">The Art</span>?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="border-0 shadow-lg p-8 text-center">
-                <Shield className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
+                <Shield className="w-16 h-16 text-[#173d26] mx-auto mb-6" />
                 <h4 className="text-xl font-playfair font-bold text-gray-900 mb-4">Master Craftsmen</h4>
                 <p className="text-gray-600">Skilled professionals with years of experience in precision grooming</p>
               </Card>
 
               <Card className="border-0 shadow-lg p-8 text-center">
-                <Heart className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
+                <Heart className="w-16 h-16 text-[#173d26] mx-auto mb-6" />
                 <h4 className="text-xl font-playfair font-bold text-gray-900 mb-4">Premium Products</h4>
                 <p className="text-gray-600">Only the finest grooming products and tools for exceptional results</p>
               </Card>
 
               <Card className="border-0 shadow-lg p-8 text-center">
-                <Award className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
+                <Award className="w-16 h-16 text-[#173d26] mx-auto mb-6" />
                 <h4 className="text-xl font-playfair font-bold text-gray-900 mb-4">Luxury Experience</h4>
                 <p className="text-gray-600">Personalized service in a sophisticated, comfortable environment</p>
               </Card>
@@ -391,7 +391,7 @@ const Services = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                What Our <span className="text-emerald-600 italic">Clients Say</span>
+                What Our <span className="text-[#173d26] italic">Clients Say</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Trusted by professionals across Addis Ababa
@@ -421,7 +421,7 @@ const Services = () => {
                       <p className="text-gray-900 font-playfair font-bold text-lg">
                         {testimonial.name}
                       </p>
-                      <p className="text-emerald-600 font-montserrat font-medium text-sm">
+                      <p className="text-[#173d26] font-montserrat font-medium text-sm">
                         {testimonial.role}
                       </p>
                     </div>

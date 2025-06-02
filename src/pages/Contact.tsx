@@ -72,7 +72,7 @@ const Contact = () => {
       title: "Visit Our Shop",
       details: ["Summit Feyel Bet", "Addis Ababa", "Ethiopia"],
       icon: MapPin,
-      accent: "emerald-500"
+      accent: "[#173d26]"
     },
     {
       title: "Call or Text",
@@ -136,20 +136,20 @@ const Contact = () => {
       <section className="pt-20 pb-16 bg-gradient-to-br from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-emerald-100 rounded-full mb-8 text-emerald-700 font-medium">
+            <div className="inline-flex items-center px-6 py-3 bg-[#173d26]/10 rounded-full mb-8 text-[#173d26] font-medium">
               <Scissors className="w-5 h-5 mr-2" />
               Premium Barbershop Experience
             </div>
             <h1 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 mb-6">
               Get In Touch
               <br />
-              <span className="text-emerald-600 italic">With The Art</span>
+              <span className="text-[#173d26] italic">With The Art</span>
             </h1>
             <p className="text-xl text-gray-600 font-montserrat max-w-2xl mx-auto mb-8">
               Ready to experience the finest in men's grooming? Contact us today to schedule your appointment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-emerald-600 text-white hover:bg-emerald-700 font-montserrat font-bold text-lg px-8 py-4 rounded-xl">
+              <Button className="bg-[#173d26] text-white hover:bg-[#173d26]/90 font-montserrat font-bold text-lg px-8 py-4 rounded-xl">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Appointment
               </Button>
@@ -168,7 +168,7 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                Visit <span className="text-emerald-600 italic">The Art</span>
+                Visit <span className="text-[#173d26] italic">The Art</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Multiple ways to connect with our master barbers
@@ -179,7 +179,7 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <Card key={info.title} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <CardContent className="p-6 text-center">
-                    <div className={`w-16 h-16 bg-${info.accent} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                    <div className={`w-16 h-16 ${info.accent === '[#173d26]' ? 'bg-[#173d26]' : `bg-${info.accent}`} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
                       <info.icon className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-montserrat font-bold text-gray-900 mb-3">
@@ -206,7 +206,7 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                Find <span className="text-emerald-600 italic">Our Location</span>
+                Find <span className="text-[#173d26] italic">Our Location</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Located at Summit Feyel Bet for your convenience
@@ -236,7 +236,7 @@ const Contact = () => {
                     </h3>
                     <div className="space-y-6">
                       <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 bg-[#173d26] rounded-xl flex items-center justify-center flex-shrink-0">
                           <MapPin className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -269,7 +269,7 @@ const Contact = () => {
                         </div>
                       </div>
 
-                      <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-montserrat font-bold text-lg py-4 rounded-xl">
+                      <Button className="w-full bg-[#173d26] text-white hover:bg-[#173d26]/90 font-montserrat font-bold text-lg py-4 rounded-xl">
                         Get Directions
                       </Button>
                     </div>
@@ -287,7 +287,7 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                Book Your <span className="text-emerald-600 italic">Appointment</span>
+                Book Your <span className="text-[#173d26] italic">Appointment</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Send us a message and we'll get back to you shortly.
@@ -308,7 +308,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Enter your full name" 
-                        className="mt-2 h-12 border-2 border-gray-200 focus:border-emerald-500 rounded-xl" 
+                        className="mt-2 h-12 border-2 border-gray-200 focus:border-[#173d26] rounded-xl" 
                         required 
                       />
                     </div>
@@ -323,7 +323,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="0911 123 456" 
-                        className="mt-2 h-12 border-2 border-gray-200 focus:border-emerald-500 rounded-xl" 
+                        className="mt-2 h-12 border-2 border-gray-200 focus:border-[#173d26] rounded-xl" 
                         required
                       />
                     </div>
@@ -341,7 +341,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="your.email@example.com" 
-                        className="mt-2 h-12 border-2 border-gray-200 focus:border-emerald-500 rounded-xl" 
+                        className="mt-2 h-12 border-2 border-gray-200 focus:border-[#173d26] rounded-xl" 
                         required 
                       />
                     </div>
@@ -354,7 +354,7 @@ const Contact = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="mt-2 h-12 w-full border-2 border-gray-200 focus:border-emerald-500 rounded-xl px-4 bg-white"
+                        className="mt-2 h-12 w-full border-2 border-gray-200 focus:border-[#173d26] rounded-xl px-4 bg-white"
                       >
                         <option value="">Select a service</option>
                         {services.map((service) => (
@@ -375,14 +375,14 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell us about your preferred style or any questions..." 
                       rows={5} 
-                      className="mt-2 border-2 border-gray-200 focus:border-emerald-500 rounded-xl resize-none" 
+                      className="mt-2 border-2 border-gray-200 focus:border-[#173d26] rounded-xl resize-none" 
                     />
                   </div>
 
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-emerald-600 text-white hover:bg-emerald-700 disabled:opacity-50 font-montserrat font-bold text-lg py-4 rounded-xl"
+                    className="w-full bg-[#173d26] text-white hover:bg-[#173d26]/90 disabled:opacity-50 font-montserrat font-bold text-lg py-4 rounded-xl"
                   >
                     {isSubmitting ? (
                       <>
@@ -409,7 +409,7 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                What Our <span className="text-emerald-600 italic">Clients Say</span>
+                What Our <span className="text-[#173d26] italic">Clients Say</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Trusted by professionals across Addis Ababa
@@ -439,7 +439,7 @@ const Contact = () => {
                       <p className="text-gray-900 font-playfair font-bold text-lg">
                         {testimonial.name}
                       </p>
-                      <p className="text-emerald-600 font-montserrat font-medium text-sm">
+                      <p className="text-[#173d26] font-montserrat font-medium text-sm">
                         {testimonial.role}
                       </p>
                     </div>
