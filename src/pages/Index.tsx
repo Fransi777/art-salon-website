@@ -251,7 +251,7 @@ const Index = () => {
               <span className="text-[#173d26] font-montserrat font-semibold text-lg">Our Artistry</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-playfair font-bold text-[#173d26] mb-8">
-              Masterful <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text italic text-[#937800] font-bold">Precision</span>
+              Masterful <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">Precision</span>
             </h2>
           </div>
 
