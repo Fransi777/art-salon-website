@@ -171,7 +171,7 @@ const About = () => {
                   <h3 className="text-2xl font-montserrat font-bold text-[#173d26] mb-2 group-hover:text-[#173d26] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent font-montserrat font-semibold mb-4">
+                  <p className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text font-montserrat font-semibold mb-4 text-[#937800]">
                     {member.role}
                   </p>
                   <div className="space-y-2 text-[#173d26]/70 font-montserrat">
