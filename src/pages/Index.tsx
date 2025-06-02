@@ -125,19 +125,19 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 overflow-x-hidden">
+    <div className="min-h-screen bg-[#173d26] overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Dark Theme */}
+      {/* Hero Section - Deep Green Theme */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Images */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-slate-900/80 z-10"></div>
+          <div className="absolute inset-0 bg-[#173d26]/90 z-10"></div>
           {heroImages.map((image, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-all duration-3000 ${
-                currentImageIndex === index ? 'opacity-30 scale-105' : 'opacity-0 scale-100'
+                currentImageIndex === index ? 'opacity-20 scale-105' : 'opacity-0 scale-100'
               }`}
               style={{
                 backgroundImage: `url(${image})`,
@@ -174,7 +174,7 @@ const Index = () => {
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
               <Button 
                 onClick={handleBookNow}
-                className="bg-yellow-500 text-slate-900 hover:bg-yellow-600 font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105"
+                className="bg-yellow-500 text-[#173d26] hover:bg-yellow-600 font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Calendar className="mr-3 h-6 w-6" />
                 Book Your Experience
@@ -183,7 +183,7 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-montserrat font-semibold text-lg px-10 py-6 rounded-full transition-all duration-300"
+                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-[#173d26] font-montserrat font-semibold text-lg px-10 py-6 rounded-full transition-all duration-300"
               >
                 <Play className="mr-3 h-6 w-6" />
                 Explore Services
@@ -199,11 +199,11 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-[#1a4129]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
-              <Card key={stat.label} className="bg-slate-700 border-slate-600 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300">
+              <Card key={stat.label} className="bg-[#0f2318] border-[#2a5238] shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-0">
                   <stat.icon className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
                   <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
@@ -216,7 +216,7 @@ const Index = () => {
       </section>
 
       {/* Premium Services Section */}
-      <section id="services" className="py-20 bg-slate-900">
+      <section id="services" className="py-20 bg-[#173d26]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-8 py-4 bg-yellow-400/10 rounded-full mb-8 border border-yellow-400/20">
@@ -235,7 +235,7 @@ const Index = () => {
             {premiumServices.map((service, index) => (
               <Card 
                 key={service.title} 
-                className="bg-slate-800 border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                className="bg-[#1a4129] border-[#2a5238] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
               >
                 {/* Service Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -244,10 +244,10 @@ const Index = () => {
                     alt={service.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#173d26]/80 to-transparent"></div>
                   <div className="absolute top-4 right-4">
                     <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
-                      <service.icon className="w-6 h-6 text-slate-900" />
+                      <service.icon className="w-6 h-6 text-[#173d26]" />
                     </div>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ const Index = () => {
                   
                   <Button 
                     onClick={handleBookNow}
-                    className="w-full bg-yellow-500 text-slate-900 hover:bg-yellow-600 transition-all duration-300 rounded-xl py-3 font-semibold"
+                    className="w-full bg-yellow-500 text-[#173d26] hover:bg-yellow-600 transition-all duration-300 rounded-xl py-3 font-semibold"
                   >
                     Select Service
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -289,10 +289,10 @@ const Index = () => {
       </section>
 
       {/* Gallery Showcase */}
-      <section className="py-20 bg-slate-800">
+      <section className="py-20 bg-[#1a4129]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-8 py-4 bg-slate-700 rounded-full mb-8 border border-slate-600 shadow-sm">
+            <div className="inline-flex items-center px-8 py-4 bg-[#0f2318] rounded-full mb-8 border border-[#2a5238] shadow-sm">
               <Award className="h-6 w-6 text-yellow-400 mr-4" />
               <span className="text-yellow-400 font-montserrat font-semibold text-lg">Our Artistry</span>
             </div>
@@ -310,7 +310,7 @@ const Index = () => {
                     alt={`The Art Barbershop Mastery ${index + 1}`} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#173d26]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-8 left-8 right-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                     <h3 className="text-white font-playfair font-bold text-2xl mb-3">
                       {index === 0 ? 'Precision Artistry' : index === 1 ? 'Master Styling' : 'Luxury Experience'}
@@ -327,7 +327,7 @@ const Index = () => {
       </section>
 
       {/* Ethiopian Testimonials */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-[#173d26]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-8 py-4 bg-yellow-400/10 rounded-full mb-8 border border-yellow-400/20">
@@ -346,7 +346,7 @@ const Index = () => {
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={testimonial.name} 
-                className="bg-slate-800 border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-[#1a4129] border-[#2a5238] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <CardContent className="p-8">
                   <div className="flex mb-6 justify-center">
@@ -359,7 +359,7 @@ const Index = () => {
                     "{testimonial.text}"
                   </p>
                   
-                  <div className="border-t border-slate-700 pt-6 text-center">
+                  <div className="border-t border-[#2a5238] pt-6 text-center">
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name}
@@ -380,7 +380,7 @@ const Index = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 bg-slate-800">
+      <section className="py-20 bg-[#1a4129]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-8 py-4 bg-yellow-400/10 rounded-full mb-8 border border-yellow-400/20">
@@ -397,14 +397,14 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={handleBookNow}
-                className="bg-yellow-500 text-slate-900 hover:bg-yellow-600 font-montserrat font-bold text-lg px-8 py-4 rounded-full"
+                className="bg-yellow-500 text-[#173d26] hover:bg-yellow-600 font-montserrat font-bold text-lg px-8 py-4 rounded-full"
               >
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Your Experience
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-montserrat font-semibold text-lg px-8 py-4 rounded-full"
+                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-[#173d26] font-montserrat font-semibold text-lg px-8 py-4 rounded-full"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call 0935652525

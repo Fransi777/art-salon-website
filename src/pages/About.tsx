@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Users, Star, Target, Heart, Gem } from 'lucide-react';
+
 const About = () => {
   const team = [{
     name: "Marcus 'The Artist' Johnson",
@@ -36,22 +37,53 @@ const About = () => {
     label: "Happy Customer",
     icon: Star
   }];
-  return <div className="min-h-screen bg-white">
+  return (
+    <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section with Owner Profile */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-8">
+              {/* Owner Profile Image - Circular and Prominent */}
+              <div className="text-center lg:text-left mb-8">
+                <div className="relative inline-block">
+                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-gold/20 mx-auto lg:mx-0">
+                    <img 
+                      src="/lovable-uploads/17ee4b97-c09e-4de1-9645-074ca099ef8a.png" 
+                      alt="Artist Henok Berihun - Master Barber & Founder" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Decorative ring */}
+                  <div className="absolute -inset-2 rounded-full border-2 border-sage/30 animate-pulse"></div>
+                  <div className="absolute -inset-4 rounded-full border border-bronze/20"></div>
+                </div>
+                
+                {/* Owner Introduction */}
+                <div className="mt-6">
+                  <h3 className="text-2xl md:text-3xl font-playfair font-bold text-obsidian mb-2">
+                    Artist Henok Berihun
+                  </h3>
+                  <p className="text-lg text-bronze font-montserrat font-semibold mb-4">
+                    Master Barber & Founder
+                  </p>
+                  <p className="text-gray-600 font-montserrat max-w-md mx-auto lg:mx-0 leading-relaxed">
+                    With over 15 years of artistic excellence, Henok has transformed the landscape of Ethiopian barbering, 
+                    blending traditional craftsmanship with contemporary sophistication.
+                  </p>
+                </div>
+              </div>
+
               <div className="animate-fade-in">
-                <h1 className="text-6xl md:text-7xl font-montserrat font-black text-obsidian leading-tight">
+                <h1 className="text-5xl md:text-6xl font-montserrat font-black text-obsidian leading-tight">
                   Our Story of
                   <br />
                   <span className="text-obsidian">Excellence</span>
                   <br />
-                  <span className="font-playfair italic text-5xl md:text-6xl text-sage">& Craft</span>
+                  <span className="font-playfair italic text-4xl md:text-5xl text-sage">& Craft</span>
                 </h1>
               </div>
               
@@ -62,7 +94,8 @@ const About = () => {
 
               {/* Stats Section */}
               <div className="grid grid-cols-3 gap-6 pt-8">
-                {stats.map((stat, index) => <div key={stat.label} className="text-center">
+                {stats.map((stat, index) => (
+                  <div key={stat.label} className="text-center">
                     <div className="flex justify-center mb-2">
                       <stat.icon className="h-6 w-6 text-sage" />
                     </div>
@@ -72,7 +105,8 @@ const About = () => {
                     <div className="text-sm text-gray-600 font-montserrat">
                       {stat.label}
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -81,7 +115,11 @@ const About = () => {
               <div className="relative animate-slide-in-right">
                 <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-3xl transform rotate-3"></div>
                 <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <img alt="The Art Barbershop Interior" className="w-full h-[500px] object-cover rounded-2xl" src="/lovable-uploads/168c55fc-99af-4f1b-bec6-1ce8003e5fbb.jpg" />
+                  <img 
+                    alt="The Art Barbershop Interior" 
+                    className="w-full h-[500px] object-cover rounded-2xl" 
+                    src="/lovable-uploads/168c55fc-99af-4f1b-bec6-1ce8003e5fbb.jpg" 
+                  />
                 </div>
                 <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-sage/20 rounded-full blur-lg"></div>
@@ -185,6 +223,8 @@ const About = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default About;
