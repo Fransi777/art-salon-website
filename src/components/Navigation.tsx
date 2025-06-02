@@ -69,7 +69,7 @@ const Navigation = () => {
             <Button onClick={() => {
             handleBookNow();
             setIsMobileMenuOpen(false);
-          }} className="bg-sage text-white hover:bg-sage/90 font-montserrat font-semibold w-fit px-6 py-2 rounded-full">
+          }} className="text-white font-montserrat font-semibold w-fit px-6 py-2 rounded-full bg-[#173d26]">
               Book Now
             </Button>
           </div>
