@@ -3,7 +3,6 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Users, Star, Target, Heart, Gem } from 'lucide-react';
-
 const About = () => {
   const team = [{
     name: "Marcus 'The Artist' Johnson",
@@ -37,8 +36,7 @@ const About = () => {
     label: "Happy Customer",
     icon: Star
   }];
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section with Owner Profile */}
@@ -50,16 +48,10 @@ const About = () => {
               {/* Owner Profile Image - Circular and Prominent */}
               <div className="text-center lg:text-left mb-8">
                 <div className="relative inline-block">
-                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-gold/20 mx-auto lg:mx-0">
-                    <img 
-                      src="/lovable-uploads/17ee4b97-c09e-4de1-9645-074ca099ef8a.png" 
-                      alt="Artist Henok Berihun - Master Barber & Founder" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  
                   {/* Decorative ring */}
-                  <div className="absolute -inset-2 rounded-full border-2 border-sage/30 animate-pulse"></div>
-                  <div className="absolute -inset-4 rounded-full border border-bronze/20"></div>
+                  
+                  
                 </div>
                 
                 {/* Owner Introduction */}
@@ -78,51 +70,22 @@ const About = () => {
               </div>
 
               <div className="animate-fade-in">
-                <h1 className="text-5xl md:text-6xl font-montserrat font-black text-obsidian leading-tight">
-                  Our Story of
-                  <br />
-                  <span className="text-obsidian">Excellence</span>
-                  <br />
-                  <span className="font-playfair italic text-4xl md:text-5xl text-sage">& Craft</span>
-                </h1>
+                
               </div>
               
-              <p className="text-lg text-gray-600 font-montserrat max-w-lg leading-relaxed">
-                Founded in 2010, The Art began as a vision to create more than just a barbershop—
-                it was to be a sanctuary where Afro-centric style could be celebrated and elevated to an art form.
-              </p>
+              
 
               {/* Stats Section */}
-              <div className="grid grid-cols-3 gap-6 pt-8">
-                {stats.map((stat, index) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="flex justify-center mb-2">
-                      <stat.icon className="h-6 w-6 text-sage" />
-                    </div>
-                    <div className="text-3xl font-montserrat font-bold text-sage mb-1">
-                      {stat.number}
-                    </div>
-                    <div className="text-sm text-gray-600 font-montserrat">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              
             </div>
 
             {/* Right Content - Hero Image */}
             <div className="lg:col-span-6 relative">
               <div className="relative animate-slide-in-right">
                 <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-bronze/20 rounded-3xl transform rotate-3"></div>
-                <div className="relative bg-white rounded-3xl shadow-2xl p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <img 
-                    alt="The Art Barbershop Interior" 
-                    className="w-full h-[500px] object-cover rounded-2xl" 
-                    src="/lovable-uploads/168c55fc-99af-4f1b-bec6-1ce8003e5fbb.jpg" 
-                  />
-                </div>
+                
                 <div className="absolute -top-8 -left-8 w-32 h-32 bg-gold/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-sage/20 rounded-full blur-lg"></div>
+                
               </div>
             </div>
           </div>
@@ -223,8 +186,6 @@ const About = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
