@@ -147,7 +147,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
-              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 shadow-xl">
+              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105 shadow-xl\n">
                 <Calendar className="mr-3 h-6 w-6" />
                 Book Your Experience
               </Button>
@@ -232,7 +232,7 @@ const Index = () => {
                       </div>)}
                   </div>
                   
-                  <Button onClick={handleBookNow} className="w-full bg-[#173d26] text-white hover:bg-[#173d26]/90 font-semibold py-3 rounded-xl">
+                  <Button onClick={handleBookNow} className="w-full bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-xl">
                     Select Service
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
