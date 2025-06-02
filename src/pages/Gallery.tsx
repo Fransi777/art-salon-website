@@ -92,7 +92,7 @@ const Gallery = () => {
             </div>
             
             <h1 className="text-6xl md:text-8xl font-montserrat font-black text-[#173d26] leading-tight mb-8">
-              <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-[#937800]">Masterful</span>
+              <span className="bg-gradient-to-r from-[#efe0bf] to-[173d26] bg-clip-text text-[#937800]">Masterful</span>
               <br />
               <span className="text-[#173d26]">Creations</span>
             </h1>
@@ -119,9 +119,7 @@ const Gallery = () => {
                 </div>)}
             </div>
 
-            <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-xl px-12 py-6 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg">
-              Book Your Session
-            </Button>
+            
           </div>
         </div>
       </section>
