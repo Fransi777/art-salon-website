@@ -125,19 +125,19 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-slate-900 overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Clean Layout */}
+      {/* Hero Section - Dark Theme */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Images */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="absolute inset-0 bg-slate-900/80 z-10"></div>
           {heroImages.map((image, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-all duration-3000 ${
-                currentImageIndex === index ? 'opacity-60 scale-105' : 'opacity-0 scale-100'
+                currentImageIndex === index ? 'opacity-30 scale-105' : 'opacity-0 scale-100'
               }`}
               style={{
                 backgroundImage: `url(${image})`,
@@ -162,19 +162,19 @@ const Index = () => {
 
             <h1 className="text-6xl md:text-8xl font-playfair font-bold leading-tight mb-6">
               <span className="block text-white">The Art</span>
-              <span className="block text-3xl md:text-5xl font-montserrat font-light text-emerald-400 mt-2">
+              <span className="block text-3xl md:text-5xl font-montserrat font-light text-yellow-400 mt-2">
                 of Sophistication
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-200 font-montserrat mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 font-montserrat mb-8 leading-relaxed">
               Where Ethiopian tradition meets modern luxury. Experience the pinnacle of men's grooming.
             </p>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
               <Button 
                 onClick={handleBookNow}
-                className="bg-emerald-600 text-white hover:bg-emerald-700 font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105"
+                className="bg-yellow-500 text-slate-900 hover:bg-yellow-600 font-montserrat font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Calendar className="mr-3 h-6 w-6" />
                 Book Your Experience
@@ -183,7 +183,7 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-montserrat font-semibold text-lg px-10 py-6 rounded-full transition-all duration-300"
+                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-montserrat font-semibold text-lg px-10 py-6 rounded-full transition-all duration-300"
               >
                 <Play className="mr-3 h-6 w-6" />
                 Explore Services
@@ -192,22 +192,22 @@ const Index = () => {
 
             {/* Scroll Indicator */}
             <div className="animate-bounce">
-              <ChevronDown className="h-8 w-8 text-white mx-auto" />
+              <ChevronDown className="h-8 w-8 text-yellow-400 mx-auto" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-slate-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
-              <Card key={stat.label} className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300">
+              <Card key={stat.label} className="bg-slate-700 border-slate-600 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-0">
-                  <stat.icon className="h-12 w-12 text-emerald-600 mx-auto mb-4" />
-                  <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                  <div className="text-gray-600 font-montserrat">{stat.label}</div>
+                  <stat.icon className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                  <div className="text-gray-300 font-montserrat">{stat.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -216,17 +216,17 @@ const Index = () => {
       </section>
 
       {/* Premium Services Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-8 py-4 bg-emerald-100 rounded-full mb-8 border border-emerald-200">
-              <Scissors className="h-6 w-6 text-emerald-600 mr-4" />
-              <span className="text-emerald-700 font-montserrat font-semibold text-lg">Premium Services</span>
+            <div className="inline-flex items-center px-8 py-4 bg-yellow-400/10 rounded-full mb-8 border border-yellow-400/20">
+              <Scissors className="h-6 w-6 text-yellow-400 mr-4" />
+              <span className="text-yellow-400 font-montserrat font-semibold text-lg">Premium Services</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 mb-8">
-              Artisan <span className="text-emerald-600 italic">Mastery</span>
+            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-white mb-8">
+              Artisan <span className="text-yellow-400 italic">Mastery</span>
             </h2>
-            <p className="text-xl text-gray-600 font-montserrat max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 font-montserrat max-w-3xl mx-auto leading-relaxed">
               Each service is a carefully curated experience, delivered by master craftsmen
             </p>
           </div>
@@ -235,7 +235,7 @@ const Index = () => {
             {premiumServices.map((service, index) => (
               <Card 
                 key={service.title} 
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                className="bg-slate-800 border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
               >
                 {/* Service Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -244,31 +244,31 @@ const Index = () => {
                     alt={service.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                   <div className="absolute top-4 right-4">
-                    <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <service.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
+                      <service.icon className="w-6 h-6 text-slate-900" />
                     </div>
                   </div>
                 </div>
 
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-playfair font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-playfair font-bold text-white mb-3">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-600 font-montserrat mb-4 leading-relaxed">
+                  <p className="text-gray-300 font-montserrat mb-4 leading-relaxed">
                     {service.description}
                   </p>
                   
-                  <div className="text-emerald-600 font-montserrat font-bold text-xl mb-4">
+                  <div className="text-yellow-400 font-montserrat font-bold text-xl mb-4">
                     {service.price}
                   </div>
 
                   <div className="space-y-2 mb-6">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-emerald-600 mr-2" />
+                      <div key={idx} className="flex items-center text-sm text-gray-300">
+                        <CheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                         {feature}
                       </div>
                     ))}
@@ -276,7 +276,7 @@ const Index = () => {
                   
                   <Button 
                     onClick={handleBookNow}
-                    className="w-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 rounded-xl py-3 font-semibold"
+                    className="w-full bg-yellow-500 text-slate-900 hover:bg-yellow-600 transition-all duration-300 rounded-xl py-3 font-semibold"
                   >
                     Select Service
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -289,15 +289,15 @@ const Index = () => {
       </section>
 
       {/* Gallery Showcase */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-slate-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-8 py-4 bg-white rounded-full mb-8 border border-gray-200 shadow-sm">
-              <Award className="h-6 w-6 text-gray-700 mr-4" />
-              <span className="text-gray-700 font-montserrat font-semibold text-lg">Our Artistry</span>
+            <div className="inline-flex items-center px-8 py-4 bg-slate-700 rounded-full mb-8 border border-slate-600 shadow-sm">
+              <Award className="h-6 w-6 text-yellow-400 mr-4" />
+              <span className="text-yellow-400 font-montserrat font-semibold text-lg">Our Artistry</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 mb-8">
-              Masterful <span className="text-emerald-600 italic">Precision</span>
+            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-white mb-8">
+              Masterful <span className="text-yellow-400 italic">Precision</span>
             </h2>
           </div>
 
@@ -310,7 +310,7 @@ const Index = () => {
                     alt={`The Art Barbershop Mastery ${index + 1}`} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-8 left-8 right-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                     <h3 className="text-white font-playfair font-bold text-2xl mb-3">
                       {index === 0 ? 'Precision Artistry' : index === 1 ? 'Master Styling' : 'Luxury Experience'}
@@ -327,17 +327,17 @@ const Index = () => {
       </section>
 
       {/* Ethiopian Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-8 py-4 bg-emerald-100 rounded-full mb-8 border border-emerald-200">
-              <Star className="h-6 w-6 text-emerald-600 mr-4" />
-              <span className="text-emerald-700 font-montserrat font-semibold text-lg">Client Excellence</span>
+            <div className="inline-flex items-center px-8 py-4 bg-yellow-400/10 rounded-full mb-8 border border-yellow-400/20">
+              <Star className="h-6 w-6 text-yellow-400 mr-4" />
+              <span className="text-yellow-400 font-montserrat font-semibold text-lg">Client Excellence</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 mb-8">
-              Trusted by <span className="text-emerald-600 italic">Professionals</span>
+            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-white mb-8">
+              Trusted by <span className="text-yellow-400 italic">Professionals</span>
             </h2>
-            <p className="text-xl text-gray-600 font-montserrat max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 font-montserrat max-w-2xl mx-auto">
               Hear from our satisfied clients across Addis Ababa
             </p>
           </div>
@@ -346,29 +346,29 @@ const Index = () => {
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={testimonial.name} 
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-slate-800 border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <CardContent className="p-8">
                   <div className="flex mb-6 justify-center">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="text-yellow-500 h-6 w-6 fill-current" />
+                      <Star key={i} className="text-yellow-400 h-6 w-6 fill-current" />
                     ))}
                   </div>
                   
-                  <p className="text-gray-600 font-montserrat mb-6 italic leading-relaxed text-center">
+                  <p className="text-gray-300 font-montserrat mb-6 italic leading-relaxed text-center">
                     "{testimonial.text}"
                   </p>
                   
-                  <div className="border-t border-gray-200 pt-6 text-center">
+                  <div className="border-t border-slate-700 pt-6 text-center">
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name}
                       className="w-16 h-16 rounded-full mx-auto mb-3 object-cover"
                     />
-                    <p className="text-gray-900 font-playfair font-bold text-lg mb-1">
+                    <p className="text-white font-playfair font-bold text-lg mb-1">
                       {testimonial.name}
                     </p>
-                    <p className="text-emerald-600 font-montserrat font-medium text-sm">
+                    <p className="text-yellow-400 font-montserrat font-medium text-sm">
                       {testimonial.role}
                     </p>
                   </div>
@@ -380,26 +380,31 @@ const Index = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 bg-emerald-600">
+      <section className="py-20 bg-slate-800">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center px-8 py-4 bg-yellow-400/10 rounded-full mb-8 border border-yellow-400/20">
+              <Star className="h-6 w-6 text-yellow-400 mr-4" />
+              <span className="text-yellow-400 font-montserrat font-semibold text-lg">Ready for Your Transformation?</span>
+            </div>
             <h3 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">
-              Ready for the <span className="italic">Ultimate Experience?</span>
+              Become Part of Our <span className="text-yellow-400 italic">Gallery</span>
             </h3>
-            <p className="text-xl text-emerald-100 font-montserrat mb-8 leading-relaxed">
-              Located at Summit Feyel Bet, Addis Ababa. Call us at 0935652525 to book your appointment today.
+            <p className="text-xl text-gray-300 font-montserrat mb-8 leading-relaxed">
+              Experience the artistry that transforms not just your look, but your confidence. 
+              Book your session and join our collection of satisfied clients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={handleBookNow}
-                className="bg-white text-emerald-600 hover:bg-gray-100 font-montserrat font-bold text-lg px-8 py-4 rounded-full"
+                className="bg-yellow-500 text-slate-900 hover:bg-yellow-600 font-montserrat font-bold text-lg px-8 py-4 rounded-full"
               >
                 <Calendar className="mr-2 h-5 w-5" />
-                Book Now
+                Book Your Experience
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-montserrat font-semibold text-lg px-8 py-4 rounded-full"
+                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-montserrat font-semibold text-lg px-8 py-4 rounded-full"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call 0935652525
