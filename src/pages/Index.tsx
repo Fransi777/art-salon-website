@@ -222,15 +222,15 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
-              <Card key={stat.label} className={`${cardBg} shadow-xl text-center p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-2xl border-0`}>
+              <Card key={stat.label} className="bg-white shadow-xl text-center p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-2xl border border-[#173d26]/10">
                 <CardContent className="p-0">
-                  <stat.icon className={`h-12 w-12 ${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} mx-auto mb-4`} />
-                  <div className={`text-3xl md:text-4xl font-bold ${textColor} mb-2 bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent`}>{stat.number}</div>
-                  <div className={`${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/70'} font-montserrat`}>{stat.label}</div>
+                  <stat.icon className="h-12 w-12 text-[#173d26] mx-auto mb-4" />
+                  <div className="text-3xl md:text-4xl font-bold text-[#173d26] mb-2 bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent">{stat.number}</div>
+                  <div className="text-[#173d26]/70 font-montserrat">{stat.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -239,17 +239,17 @@ const Index = () => {
       </section>
 
       {/* Premium Services Section */}
-      <section id="services" className="py-20">
+      <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className={`inline-flex items-center px-8 py-4 ${isDarkMode ? 'bg-[#f0c515]/10 border-[#f0c515]/20' : 'bg-[#173d26]/10 border-[#173d26]/20'} rounded-full mb-8 border`}>
-              <Scissors className={`h-6 w-6 ${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} mr-4`} />
-              <span className={`${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} font-montserrat font-semibold text-lg`}>Premium Services</span>
+            <div className="inline-flex items-center px-8 py-4 bg-[#173d26]/10 border-[#173d26]/20 rounded-full mb-8 border">
+              <Scissors className="h-6 w-6 text-[#173d26] mr-4" />
+              <span className="text-[#173d26] font-montserrat font-semibold text-lg">Premium Services</span>
             </div>
-            <h2 className={`text-5xl md:text-6xl font-playfair font-bold ${textColor} mb-8`}>
+            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-[#173d26] mb-8">
               Artisan <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent italic">Mastery</span>
             </h2>
-            <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/80'} font-montserrat max-w-3xl mx-auto leading-relaxed`}>
+            <p className="text-xl text-[#173d26]/80 font-montserrat max-w-3xl mx-auto leading-relaxed">
               Each service is a carefully curated experience, delivered by master craftsmen
             </p>
           </div>
@@ -258,7 +258,7 @@ const Index = () => {
             {premiumServices.map((service, index) => (
               <Card 
                 key={service.title} 
-                className={`${cardBg} shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-2xl border-0`}
+                className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-2xl border border-[#173d26]/10"
               >
                 {/* Service Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -267,7 +267,7 @@ const Index = () => {
                     alt={service.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
-                  <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-t from-black/80 to-transparent' : 'bg-gradient-to-t from-[#173d26]/80 to-transparent'}`}></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#173d26]/80 to-transparent"></div>
                   <div className="absolute top-4 right-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-[#efe0bf] to-[#f0c515] rounded-xl flex items-center justify-center shadow-lg">
                       <service.icon className="w-6 h-6 text-[#173d26]" />
@@ -276,11 +276,11 @@ const Index = () => {
                 </div>
 
                 <CardContent className="p-6">
-                  <h3 className={`text-2xl font-playfair font-bold ${textColor} mb-3`}>
+                  <h3 className="text-2xl font-playfair font-bold text-[#173d26] mb-3">
                     {service.title}
                   </h3>
                   
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/70'} font-montserrat mb-4 leading-relaxed`}>
+                  <p className="text-[#173d26]/70 font-montserrat mb-4 leading-relaxed">
                     {service.description}
                   </p>
                   
@@ -290,8 +290,8 @@ const Index = () => {
 
                   <div className="space-y-2 mb-6">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className={`flex items-center text-sm ${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/70'}`}>
-                        <CheckCircle className={`w-4 h-4 ${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} mr-2`} />
+                      <div key={idx} className="flex items-center text-sm text-[#173d26]/70">
+                        <CheckCircle className="w-4 h-4 text-[#173d26] mr-2" />
                         {feature}
                       </div>
                     ))}
@@ -312,14 +312,14 @@ const Index = () => {
       </section>
 
       {/* Gallery Showcase */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className={`inline-flex items-center px-8 py-4 ${cardBg} rounded-full mb-8 border ${isDarkMode ? 'border-[#173d26]/30' : 'border-[#173d26]/20'} shadow-sm`}>
-              <Award className={`h-6 w-6 ${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} mr-4`} />
-              <span className={`${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} font-montserrat font-semibold text-lg`}>Our Artistry</span>
+            <div className="inline-flex items-center px-8 py-4 bg-white rounded-full mb-8 border border-[#173d26]/20 shadow-sm">
+              <Award className="h-6 w-6 text-[#173d26] mr-4" />
+              <span className="text-[#173d26] font-montserrat font-semibold text-lg">Our Artistry</span>
             </div>
-            <h2 className={`text-5xl md:text-6xl font-playfair font-bold ${textColor} mb-8`}>
+            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-[#173d26] mb-8">
               Masterful <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent italic">Precision</span>
             </h2>
           </div>
@@ -333,7 +333,7 @@ const Index = () => {
                     alt={`The Art Barbershop Mastery ${index + 1}`} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   />
-                  <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-t from-black/90 via-transparent to-transparent' : 'bg-gradient-to-t from-[#173d26]/90 via-transparent to-transparent'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#173d26]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-8 left-8 right-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                     <h3 className="text-white font-playfair font-bold text-2xl mb-3 bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent">
                       {index === 0 ? 'Precision Artistry' : index === 1 ? 'Master Styling' : 'Luxury Experience'}
@@ -350,17 +350,17 @@ const Index = () => {
       </section>
 
       {/* Ethiopian Testimonials */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className={`inline-flex items-center px-8 py-4 ${isDarkMode ? 'bg-[#f0c515]/10 border-[#f0c515]/20' : 'bg-[#173d26]/10 border-[#173d26]/20'} rounded-full mb-8 border`}>
-              <Star className={`h-6 w-6 ${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} mr-4`} />
-              <span className={`${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} font-montserrat font-semibold text-lg`}>Client Excellence</span>
+            <div className="inline-flex items-center px-8 py-4 bg-[#173d26]/10 border-[#173d26]/20 rounded-full mb-8 border">
+              <Star className="h-6 w-6 text-[#173d26] mr-4" />
+              <span className="text-[#173d26] font-montserrat font-semibold text-lg">Client Excellence</span>
             </div>
-            <h2 className={`text-5xl md:text-6xl font-playfair font-bold ${textColor} mb-8`}>
+            <h2 className="text-5xl md:text-6xl font-playfair font-bold text-[#173d26] mb-8">
               Trusted by <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent italic">Professionals</span>
             </h2>
-            <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/80'} font-montserrat max-w-2xl mx-auto`}>
+            <p className="text-xl text-[#173d26]/80 font-montserrat max-w-2xl mx-auto">
               Hear from our satisfied clients across Addis Ababa
             </p>
           </div>
@@ -369,29 +369,29 @@ const Index = () => {
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={testimonial.name} 
-                className={`${cardBg} shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 rounded-2xl border-0`}
+                className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 rounded-2xl border border-[#173d26]/10"
               >
                 <CardContent className="p-8">
                   <div className="flex mb-6 justify-center">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className={`${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} h-6 w-6 fill-current`} />
+                      <Star key={i} className="text-[#173d26] h-6 w-6 fill-current" />
                     ))}
                   </div>
                   
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/70'} font-montserrat mb-6 italic leading-relaxed text-center`}>
+                  <p className="text-[#173d26]/70 font-montserrat mb-6 italic leading-relaxed text-center">
                     "{testimonial.text}"
                   </p>
                   
-                  <div className={`border-t ${isDarkMode ? 'border-[#173d26]/30' : 'border-[#173d26]/20'} pt-6 text-center`}>
+                  <div className="border-t border-[#173d26]/20 pt-6 text-center">
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name}
                       className="w-16 h-16 rounded-full mx-auto mb-3 object-cover"
                     />
-                    <p className={`${textColor} font-playfair font-bold text-lg mb-1`}>
+                    <p className="text-[#173d26] font-playfair font-bold text-lg mb-1">
                       {testimonial.name}
                     </p>
-                    <p className={`${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} font-montserrat font-medium text-sm`}>
+                    <p className="text-[#173d26] font-montserrat font-medium text-sm">
                       {testimonial.role}
                     </p>
                   </div>
@@ -403,17 +403,17 @@ const Index = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className={`inline-flex items-center px-8 py-4 ${isDarkMode ? 'bg-[#f0c515]/10 border-[#f0c515]/20' : 'bg-[#173d26]/10 border-[#173d26]/20'} rounded-full mb-8 border`}>
-              <Star className={`h-6 w-6 ${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} mr-4`} />
-              <span className={`${isDarkMode ? 'text-[#f0c515]' : 'text-[#173d26]'} font-montserrat font-semibold text-lg`}>Ready for Your Transformation?</span>
+            <div className="inline-flex items-center px-8 py-4 bg-[#173d26]/10 border-[#173d26]/20 rounded-full mb-8 border">
+              <Star className="h-6 w-6 text-[#173d26] mr-4" />
+              <span className="text-[#173d26] font-montserrat font-semibold text-lg">Ready for Your Transformation?</span>
             </div>
-            <h3 className={`text-4xl md:text-5xl font-playfair font-bold ${textColor} mb-6`}>
+            <h3 className="text-4xl md:text-5xl font-playfair font-bold text-[#173d26] mb-6">
               Become Part of Our <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent italic">Gallery</span>
             </h3>
-            <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-[#173d26]/80'} font-montserrat mb-8 leading-relaxed`}>
+            <p className="text-xl text-[#173d26]/80 font-montserrat mb-8 leading-relaxed">
               Experience the artistry that transforms not just your look, but your confidence. 
               Book your session and join our collection of satisfied clients.
             </p>
@@ -427,7 +427,7 @@ const Index = () => {
               </Button>
               <Button 
                 variant="outline"
-                className={`border-2 ${isDarkMode ? 'border-[#f0c515] text-[#f0c515] hover:bg-[#f0c515] hover:text-[#173d26]' : 'border-[#173d26] text-[#173d26] hover:bg-[#173d26] hover:text-white'} font-montserrat font-semibold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300`}
+                className="border-2 border-[#173d26] text-[#173d26] hover:bg-[#173d26] hover:text-white font-montserrat font-semibold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call 0935652525

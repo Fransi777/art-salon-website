@@ -41,7 +41,7 @@ const About = () => {
   }];
 
   return (
-    <div className="min-h-screen bg-[#173d26]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section with Owner Profile */}
@@ -52,36 +52,34 @@ const About = () => {
             <div className="lg:col-span-6 space-y-8">
               {/* Owner Introduction */}
               <div className="text-center lg:text-left">
-                <h3 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-4 leading-tight">
+                <h3 className="text-4xl md:text-5xl font-playfair font-bold text-[#173d26] mb-4 leading-tight">
                   Artist Henok Berihun
                 </h3>
                 <p className="text-xl md:text-2xl bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent font-montserrat font-semibold mb-6">
                   Master Barber & Founder
                 </p>
-                <p className="text-lg text-gray-300 font-montserrat max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-lg text-[#173d26]/70 font-montserrat max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                   With over 15 years of artistic excellence, Henok has transformed the landscape of Ethiopian barbering, 
                   blending traditional craftsmanship with contemporary sophistication.
                 </p>
               </div>
             </div>
 
-            {/* Right Content - Hero Image */}
+            {/* Right Content - Circular Profile Image */}
             <div className="lg:col-span-6 relative">
-              <div className="relative">
-                {/* Portrait Image with Seamless Background Blending */}
+              <div className="relative max-w-md mx-auto">
+                {/* Circular Profile Image */}
                 <div className="relative">
-                  <img 
-                    src="/lovable-uploads/9265fdd2-8387-4d0f-ac9b-f0e40947c59a.png" 
-                    alt="Artist Henok Berihun - Master Barber & Founder" 
-                    className="w-full max-w-md mx-auto object-cover rounded-2xl shadow-2xl"
-                    style={{
-                      background: 'linear-gradient(135deg, #173d26 0%, #1a4129 50%, #173d26 100%)',
-                      padding: '2px'
-                    }}
-                  />
+                  <div className="w-80 h-80 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-[#173d26]/10">
+                    <img 
+                      src="/lovable-uploads/9265fdd2-8387-4d0f-ac9b-f0e40947c59a.png" 
+                      alt="Artist Henok Berihun - Master Barber & Founder" 
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
                   
                   {/* Subtle glow effect */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#efe0bf]/20 to-[#f0c515]/20 rounded-2xl blur-lg opacity-50"></div>
+                  <div className="absolute -inset-2 bg-gradient-to-r from-[#efe0bf]/20 to-[#f0c515]/20 rounded-full blur-xl opacity-50"></div>
                 </div>
                 
                 {/* Decorative elements */}
@@ -103,55 +101,55 @@ const About = () => {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-20 bg-gradient-to-b from-[#173d26] to-[#1a4129]">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-[#173d26] mb-6">
               Our Mission & Values
             </h2>
-            <p className="text-xl text-gray-300 font-montserrat max-w-2xl mx-auto">
+            <p className="text-xl text-[#173d26]/70 font-montserrat max-w-2xl mx-auto">
               The principles that guide everything we do
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="group bg-gradient-to-br from-gray-800/30 to-[#173d26]/50 border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl backdrop-blur-sm">
+            <Card className="group bg-white border-[#173d26]/10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-[#efe0bf]/20 to-[#f0c515]/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gradient-to-r group-hover:from-[#efe0bf] group-hover:to-[#f0c515] group-hover:scale-110 transition-all duration-300">
-                  <Target className="h-8 w-8 text-[#f0c515] group-hover:text-[#173d26] transition-colors duration-300" />
+                  <Target className="h-8 w-8 text-[#173d26] group-hover:text-[#173d26] transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-montserrat font-bold text-white mb-4 group-hover:text-[#f0c515] transition-colors duration-300">
+                <h3 className="text-xl font-montserrat font-bold text-[#173d26] mb-4 group-hover:text-[#173d26] transition-colors duration-300">
                   Excellence
                 </h3>
-                <p className="text-gray-300 font-montserrat leading-relaxed">
+                <p className="text-[#173d26]/70 font-montserrat leading-relaxed">
                   We strive for perfection in every cut, ensuring each client leaves feeling confident and styled to perfection.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="group bg-gradient-to-br from-gray-800/30 to-[#173d26]/50 border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl backdrop-blur-sm">
+            <Card className="group bg-white border-[#173d26]/10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-[#efe0bf]/20 to-[#f0c515]/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gradient-to-r group-hover:from-[#efe0bf] group-hover:to-[#f0c515] group-hover:scale-110 transition-all duration-300">
-                  <Heart className="h-8 w-8 text-[#f0c515] group-hover:text-[#173d26] transition-colors duration-300" />
+                  <Heart className="h-8 w-8 text-[#173d26] group-hover:text-[#173d26] transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-montserrat font-bold text-white mb-4 group-hover:text-[#f0c515] transition-colors duration-300">
+                <h3 className="text-xl font-montserrat font-bold text-[#173d26] mb-4 group-hover:text-[#173d26] transition-colors duration-300">
                   Heritage
                 </h3>
-                <p className="text-gray-300 font-montserrat leading-relaxed">
+                <p className="text-[#173d26]/70 font-montserrat leading-relaxed">
                   We honor the rich tradition of Black barbering while pushing the boundaries of modern styling.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="group bg-gradient-to-br from-gray-800/30 to-[#173d26]/50 border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl backdrop-blur-sm">
+            <Card className="group bg-white border-[#173d26]/10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-[#efe0bf]/20 to-[#f0c515]/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gradient-to-r group-hover:from-[#efe0bf] group-hover:to-[#f0c515] group-hover:scale-110 transition-all duration-300">
-                  <Gem className="h-8 w-8 text-[#f0c515] group-hover:text-[#173d26] transition-colors duration-300" />
+                  <Gem className="h-8 w-8 text-[#173d26] group-hover:text-[#173d26] transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-montserrat font-bold text-white mb-4 group-hover:text-[#f0c515] transition-colors duration-300">
+                <h3 className="text-xl font-montserrat font-bold text-[#173d26] mb-4 group-hover:text-[#173d26] transition-colors duration-300">
                   Community
                 </h3>
-                <p className="text-gray-300 font-montserrat leading-relaxed">
+                <p className="text-[#173d26]/70 font-montserrat leading-relaxed">
                   We create a welcoming space where style, culture, and community come together in harmony.
                 </p>
               </CardContent>
@@ -161,20 +159,20 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-[#173d26]">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-[#173d26] mb-6">
               Meet the <span className="font-playfair italic bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent">Artists</span>
             </h2>
-            <p className="text-xl text-gray-300 font-montserrat max-w-2xl mx-auto">
+            <p className="text-xl text-[#173d26]/70 font-montserrat max-w-2xl mx-auto">
               Our master barbers bring decades of combined experience and unmatched skill to every service
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <Card key={member.name} className="group bg-gradient-to-br from-gray-800/30 to-[#173d26]/50 border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl backdrop-blur-sm">
+              <Card key={member.name} className="group bg-white border-[#173d26]/10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-2xl">
                 <CardContent className="p-8">
                   <div className="relative mb-6">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#efe0bf]/20 to-[#f0c515]/20 rounded-xl transform rotate-2 group-hover:rotate-0 transition-transform duration-300"></div>
@@ -184,15 +182,15 @@ const About = () => {
                       className="relative w-full h-64 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" 
                     />
                   </div>
-                  <h3 className="text-2xl font-montserrat font-bold text-white mb-2 group-hover:text-[#f0c515] transition-colors duration-300">
+                  <h3 className="text-2xl font-montserrat font-bold text-[#173d26] mb-2 group-hover:text-[#173d26] transition-colors duration-300">
                     {member.name}
                   </h3>
                   <p className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent font-montserrat font-semibold mb-4">
                     {member.role}
                   </p>
-                  <div className="space-y-2 text-gray-300 font-montserrat">
-                    <p><span className="text-[#f0c515] font-semibold">Experience:</span> {member.experience}</p>
-                    <p><span className="text-[#f0c515] font-semibold">Specialty:</span> {member.specialty}</p>
+                  <div className="space-y-2 text-[#173d26]/70 font-montserrat">
+                    <p><span className="text-[#173d26] font-semibold">Experience:</span> {member.experience}</p>
+                    <p><span className="text-[#173d26] font-semibold">Specialty:</span> {member.specialty}</p>
                   </div>
                 </CardContent>
               </Card>
