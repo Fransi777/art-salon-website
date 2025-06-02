@@ -325,7 +325,7 @@ const Index = () => {
               <span className="text-[#173d26] font-montserrat font-semibold text-lg">Ready for Your Transformation?</span>
             </div>
             <h3 className="text-4xl md:text-5xl font-playfair font-bold text-[#173d26] mb-6">
-              Become Part of Our <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-transparent italic">Gallery</span>
+              Become Part of Our <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text italic text-[#937800]">Gallery</span>
             </h3>
             <p className="text-xl text-[#173d26]/80 font-montserrat mb-8 leading-relaxed">
               Experience the artistry that transforms not just your look, but your confidence. 
