@@ -332,7 +332,7 @@ const Index = () => {
               Book your session and join our collection of satisfied clients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#937800] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+              <Button onClick={handleBookNow} className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] font-montserrat font-bold text-lg px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Your Experience
               </Button>
