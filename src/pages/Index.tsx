@@ -192,7 +192,7 @@ const Index = () => {
               <span className="text-[#173d26] font-montserrat font-semibold text-lg">Premium Services</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-playfair font-bold text-[#173d26] mb-8">
-              Artisan <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text italic font-bold text-[937800] text-[#937800]">Mastery</span>
+              Artisan <span className="bg-gradient-to-r from-[#efe0bf] to-[#173d26] bg-clip-text text-transparent\n">Mastery</span>
             </h2>
             <p className="text-xl text-[#173d26]/80 font-montserrat max-w-3xl mx-auto leading-relaxed">
               Each service is a carefully curated experience, delivered by master craftsmen
