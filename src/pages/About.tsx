@@ -74,7 +74,7 @@ const About = () => {
                 </div>
                 
                 {/* Decorative elements */}
-                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-r from-[#efe0bf]/10 to-[#f0c515]/10 rounded-full blur-xl"></div>
+                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-r from-[#efe0bf]/10 to-[#f0c515]/10 rounded-full blur-xl bg-[#937800]"></div>
                 <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-r from-[#f0c515]/10 to-[#efe0bf]/10 rounded-full blur-xl"></div>
               </div>
             </div>
