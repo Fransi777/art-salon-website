@@ -232,7 +232,7 @@ const Index = () => {
                       </div>)}
                   </div>
                   
-                  <Button onClick={handleBookNow} className="w-full bg-gradient-to-r from-[#173d26] to-[#0000] text-[#173d26] hover:from-[#f0c515] hover:to-[#efe0bf] transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-xl bg-[#173d26]">
+                  <Button onClick={handleBookNow} className="w-full bg-gradient-to-r from-[#173d26] to-[#0000] hover:from-[#f0c515] hover:to-[#efe0bf] transition-all duration-300 rounded-xl py-3 font-semibold shadow-lg hover:shadow-xl bg-[#173d26] text-slate-50">
                     Select Service
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
