@@ -219,7 +219,7 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-playfair font-bold text-gray-900 mb-12">
-              Why Choose <span className="text-[#173d26] italic">The Art</span>?
+              Why Choose <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">The Art</span>?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="border-0 shadow-lg p-8 text-center">
@@ -250,7 +250,7 @@ const Services = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                What Our <span className="text-[#173d26] italic">Clients Say</span>
+                What Our <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">Clients Say</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Trusted by professionals across Addis Ababa
