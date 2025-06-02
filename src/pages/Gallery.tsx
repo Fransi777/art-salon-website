@@ -92,7 +92,7 @@ const Gallery = () => {
             </div>
             
             <h1 className="text-6xl md:text-8xl font-montserrat font-black text-[#173d26] leading-tight mb-8">
-              <span className="bg-gradient-to-r from-[#efe0bf] to-[173d26] bg-clip-text text-[#937800]">Masterful</span>
+              <span className="bg-gradient-to-r from-[#efe0bf] to-[#173d26] bg-clip-text text-transparent\n">Masterful</span>
               <br />
               <span className="text-[#173d26]">Creations</span>
             </h1>
