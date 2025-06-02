@@ -137,7 +137,7 @@ const Index = () => {
 
             <h1 className="text-6xl md:text-8xl font-playfair font-bold leading-tight mb-6">
               <span className={`block ${textColor}`}>The Art</span>
-              <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">
+              <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent">
                 of Sophistication
               </span>
             </h1>
