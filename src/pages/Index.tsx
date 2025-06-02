@@ -221,7 +221,7 @@ const Index = () => {
                     {service.description}
                   </p>
                   
-                  <div className="bg-gradient-to-r from-[#8c841c] to-[#f0c515] bg-clip-text text-transparent font-montserrat font-bold text-xl mb-4 bg-slate-950">
+                  <div className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">
                     {service.price}
                   </div>
 
