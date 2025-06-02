@@ -172,7 +172,7 @@ const Gallery = () => {
             <h2 className="text-5xl md:text-6xl font-montserrat font-bold mb-8 text-[#173d26]">
               Become Part of Our 
               <br />
-              <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text text-[#937800]">Gallery</span>
+              <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">Gallery</span>
             </h2>
             
             <p className="text-xl text-[#173d26]/70 font-montserrat mb-12 max-w-2xl mx-auto">
