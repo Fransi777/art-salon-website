@@ -283,7 +283,7 @@ const Index = () => {
               <span className="text-[#173d26] font-montserrat font-semibold text-lg">Client Excellence</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-playfair font-bold text-[#173d26] mb-8">
-              Trusted by <span className="bg-gradient-to-r from-[#efe0bf] to-[#f0c515] bg-clip-text italic text-[#937800]">Professionals</span>
+              Trusted by <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">Professionals</span>
             </h2>
             <p className="text-xl text-[#173d26]/80 font-montserrat max-w-2xl mx-auto">
               Hear from our satisfied clients across Addis Ababa
