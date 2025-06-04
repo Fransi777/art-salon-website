@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MapPin, Check, Phone, Clock, Heart, Shield, Award, Scissors, Crown, Sparkles, Trophy, Star, Calendar, ArrowRight, Users } from 'lucide-react';
+
 const Services = () => {
   // Premium barbershop services with Ethiopian pricing
   const servicePackages = [{
@@ -43,6 +45,7 @@ const Services = () => {
     image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&q=80",
     features: ['Private VIP suite', 'Complete grooming package', 'Premium product selection', 'Extended relaxation time', 'Personal grooming consultation', 'Exclusive aftercare kit', 'Priority booking privileges']
   }];
+
   const additionalServices = [{
     name: 'Hair Wash & Blow Dry',
     price: 60,
@@ -81,22 +84,24 @@ const Services = () => {
     role: "Teacher",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
   }];
-  return <div className="min-h-screen bg-white">
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navigation />
       
       {/* Hero Section - Clean Layout */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-slate-50 to-white">
+      <section className="pt-20 pb-16 bg-gradient-to-br from-slate-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-[#173d26]/10 rounded-full mb-8 text-[#173d26] font-medium">
+            <div className="inline-flex items-center px-6 py-3 bg-[#173d26]/10 dark:bg-[#173d26]/20 rounded-full mb-8 text-[#173d26] dark:text-green-400 font-medium">
               <Scissors className="w-5 h-5 mr-2" />
               Premium Barbershop Services
             </div>
-            <h1 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-6xl font-playfair font-bold text-gray-900 dark:text-white mb-6">
               Crafted
-              <span className="block text-[#173d26] italic">Excellence</span>
+              <span className="block text-[#173d26] dark:text-green-400 italic">Excellence</span>
             </h1>
-            <p className="text-xl text-gray-600 font-montserrat max-w-2xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-300 font-montserrat max-w-2xl mx-auto mb-8">
               Experience the artistry of precision grooming with our signature services, tailored for the modern Ethiopian gentleman.
             </p>
             
@@ -105,7 +110,7 @@ const Services = () => {
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Appointment
               </Button>
-              <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white font-montserrat font-bold text-lg px-8 py-4 rounded-xl">
+              <Button variant="outline" className="border-2 border-gray-800 dark:border-gray-300 text-gray-800 dark:text-gray-300 hover:bg-gray-800 hover:text-white dark:hover:bg-gray-300 dark:hover:text-gray-900 font-montserrat font-bold text-lg px-8 py-4 rounded-xl">
                 <Phone className="mr-2 h-5 w-5" />
                 Call 0935652525
               </Button>
@@ -114,20 +119,20 @@ const Services = () => {
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#173d26]">2000+</div>
-                <div className="text-gray-600 text-sm">Happy Clients</div>
+                <div className="text-3xl font-bold text-[#173d26] dark:text-green-400">2000+</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm">Happy Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#173d26]">10+</div>
-                <div className="text-gray-600 text-sm">Years Experience</div>
+                <div className="text-3xl font-bold text-[#173d26] dark:text-green-400">10+</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#173d26]">98%</div>
-                <div className="text-gray-600 text-sm">Satisfaction</div>
+                <div className="text-3xl font-bold text-[#173d26] dark:text-green-400">98%</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm">Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#173d26]">24/7</div>
-                <div className="text-gray-600 text-sm">Support</div>
+                <div className="text-3xl font-bold text-[#173d26] dark:text-green-400">24/7</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm">Support</div>
               </div>
             </div>
           </div>
@@ -135,14 +140,14 @@ const Services = () => {
       </section>
 
       {/* Main Services - Clean Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-playfair font-bold text-gray-900 dark:text-white mb-4">
                 Signature Services
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 dark:text-gray-300">
                 Choose from our curated selection of premium grooming experiences
               </p>
             </div>
@@ -150,7 +155,7 @@ const Services = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {servicePackages.map(pkg => {
               const IconComponent = pkg.icon;
-              return <Card key={pkg.id} className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${pkg.popular ? 'ring-2 ring-[#173d26]' : ''}`}>
+              return <Card key={pkg.id} className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 dark:bg-gray-800 ${pkg.popular ? 'ring-2 ring-[#173d26]' : ''}`}>
                     {pkg.popular && <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#173d26] text-white text-xs px-4 py-1 rounded-full font-semibold z-10">
                         Most Popular
                       </div>}
@@ -168,20 +173,20 @@ const Services = () => {
                         </div>
                         <div className="text-right">
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl font-bold text-gray-900">{pkg.price} Birr</span>
+                            <span className="text-2xl font-bold text-gray-900 dark:text-white">{pkg.price} Birr</span>
                             {pkg.originalPrice && <span className="text-sm text-gray-400 line-through">{pkg.originalPrice} Birr</span>}
                           </div>
                         </div>
                       </div>
                       
-                      <h3 className="text-xl font-playfair font-bold text-gray-900 mb-3">
+                      <h3 className="text-xl font-playfair font-bold text-gray-900 dark:text-white mb-3">
                         {pkg.name}
                       </h3>
                       
                       <ul className="space-y-2 mb-6">
                         {pkg.features.map((feature, idx) => <li key={idx} className="flex items-start gap-3">
-                            <Check className="w-4 h-4 text-[#173d26] mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-600 text-sm">{feature}</span>
+                            <Check className="w-4 h-4 text-[#173d26] dark:text-green-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-600 dark:text-gray-300 text-sm">{feature}</span>
                           </li>)}
                       </ul>
                       
@@ -196,13 +201,13 @@ const Services = () => {
 
             {/* Additional Services */}
             <div className="mb-16">
-              <h3 className="text-2xl font-playfair font-bold text-gray-900 mb-6 text-center">Additional Services</h3>
+              <h3 className="text-2xl font-playfair font-bold text-gray-100 dark:text-gray-200 mb-6 text-center">Additional Services</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {additionalServices.map(service => <Card key={service.name} className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center p-4">
+                {additionalServices.map(service => <Card key={service.name} className="border-0 shadow-md hover:shadow-lg transition-all duration-300 text-center p-4 dark:bg-gray-800">
                     <CardContent className="p-0">
-                      <service.icon className="w-8 h-8 text-[#173d26] mx-auto mb-3" />
-                      <h4 className="text-gray-900 font-semibold text-sm mb-2">{service.name}</h4>
-                      <div className="text-[#173d26] font-bold">{service.price} Birr</div>
+                      <service.icon className="w-8 h-8 text-[#d4af37] mx-auto mb-3" />
+                      <h4 className="text-gray-100 dark:text-gray-200 font-semibold text-sm mb-2">{service.name}</h4>
+                      <div className="text-[#173d26] dark:text-green-400 font-bold">{service.price} Birr</div>
                     </CardContent>
                   </Card>)}
               </div>
@@ -211,33 +216,30 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Location & Contact */}
-      
-
       {/* Why Choose Us */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-4xl font-playfair font-bold text-gray-900 mb-12">
-              Why Choose <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">The Art</span>?
+            <h3 className="text-4xl font-playfair font-bold text-gray-100 dark:text-gray-200 mb-12">
+              Why Choose <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent">The Art</span>?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="border-0 shadow-lg p-8 text-center">
-                <Shield className="w-16 h-16 text-[#173d26] mx-auto mb-6" />
-                <h4 className="text-xl font-playfair font-bold text-gray-900 mb-4">Master Craftsmen</h4>
-                <p className="text-gray-600">Skilled professionals with years of experience in precision grooming</p>
+              <Card className="border-0 shadow-lg p-8 text-center dark:bg-gray-800">
+                <Shield className="w-16 h-16 text-[#d4af37] mx-auto mb-6" />
+                <h4 className="text-xl font-playfair font-bold text-gray-100 dark:text-gray-200 mb-4">Master Craftsmen</h4>
+                <p className="text-gray-200 dark:text-gray-300">Skilled professionals with years of experience in precision grooming</p>
               </Card>
 
-              <Card className="border-0 shadow-lg p-8 text-center">
-                <Heart className="w-16 h-16 text-[#173d26] mx-auto mb-6" />
-                <h4 className="text-xl font-playfair font-bold text-gray-900 mb-4">Premium Products</h4>
-                <p className="text-gray-600">Only the finest grooming products and tools for exceptional results</p>
+              <Card className="border-0 shadow-lg p-8 text-center dark:bg-gray-800">
+                <Heart className="w-16 h-16 text-[#d4af37] mx-auto mb-6" />
+                <h4 className="text-xl font-playfair font-bold text-gray-100 dark:text-gray-200 mb-4">Premium Products</h4>
+                <p className="text-gray-200 dark:text-gray-300">Only the finest grooming products and tools for exceptional results</p>
               </Card>
 
-              <Card className="border-0 shadow-lg p-8 text-center">
-                <Award className="w-16 h-16 text-[#173d26] mx-auto mb-6" />
-                <h4 className="text-xl font-playfair font-bold text-gray-900 mb-4">Luxury Experience</h4>
-                <p className="text-gray-600">Personalized service in a sophisticated, comfortable environment</p>
+              <Card className="border-0 shadow-lg p-8 text-center dark:bg-gray-800">
+                <Award className="w-16 h-16 text-[#d4af37] mx-auto mb-6" />
+                <h4 className="text-xl font-playfair font-bold text-gray-100 dark:text-gray-200 mb-4">Luxury Experience</h4>
+                <p className="text-gray-200 dark:text-gray-300">Personalized service in a sophisticated, comfortable environment</p>
               </Card>
             </div>
           </div>
@@ -245,35 +247,35 @@ const Services = () => {
       </section>
 
       {/* Ethiopian Testimonials */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-                What Our <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent\n">Clients Say</span>
+              <h2 className="text-4xl font-playfair font-bold text-gray-900 dark:text-white mb-4">
+                What Our <span className="bg-gradient-to-r from-[#f6e27a] via-[#f0c515] to-[#173d26] bg-clip-text text-transparent">Clients Say</span>
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 dark:text-gray-300">
                 Trusted by professionals across Addis Ababa
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map(testimonial => <Card key={testimonial.name} className="border-0 shadow-lg">
+              {testimonials.map(testimonial => <Card key={testimonial.name} className="border-0 shadow-lg dark:bg-gray-800">
                   <CardContent className="p-6">
                     <div className="flex mb-4 justify-center">
                       {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="text-yellow-500 h-5 w-5 fill-current" />)}
                     </div>
                     
-                    <p className="text-gray-600 font-montserrat mb-6 italic text-center leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 font-montserrat mb-6 italic text-center leading-relaxed">
                       "{testimonial.text}"
                     </p>
                     
-                    <div className="text-center border-t border-gray-200 pt-4">
+                    <div className="text-center border-t border-gray-200 dark:border-gray-700 pt-4">
                       <img src={testimonial.avatar} alt={testimonial.name} className="w-16 h-16 rounded-full mx-auto mb-3 object-cover" />
-                      <p className="text-gray-900 font-playfair font-bold text-lg">
+                      <p className="text-gray-900 dark:text-white font-playfair font-bold text-lg">
                         {testimonial.name}
                       </p>
-                      <p className="text-[#173d26] font-montserrat font-medium text-sm">
+                      <p className="text-[#173d26] dark:text-green-400 font-montserrat font-medium text-sm">
                         {testimonial.role}
                       </p>
                     </div>
@@ -285,6 +287,8 @@ const Services = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Services;
