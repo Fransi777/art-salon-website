@@ -107,13 +107,7 @@ const Index = () => {
       <Navigation />
       
       {/* Color Toggle */}
-      <div className="fixed top-20 right-4 z-50 bg-black/20 backdrop-blur-sm rounded-full p-3 shadow-lg">
-        <div className="flex items-center gap-3">
-          <Sun className={`h-4 w-4 ${isDarkMode ? 'text-gray-400' : 'text-yellow-500'}`} />
-          <Switch checked={isDarkMode} onCheckedChange={toggleTheme} />
-          <Moon className={`h-4 w-4 ${isDarkMode ? 'text-yellow-400' : 'text-gray-400'}`} />
-        </div>
-      </div>
+      
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
